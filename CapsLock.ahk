@@ -84,7 +84,18 @@ return
 
 ;Mouse Hotkeys-------------------------------------------------
 CapsLock & MButton::
-	PlayPause()
+	IfWinExist ahk_class SpotifyMainWindow
+	{
+		PlayPause()
+	}
+	else IfWinExist ahk_class ahk_class WMPlayerApp
+	{
+		PlayPause()
+	}
+	else
+	{
+		PandoraPause()
+	}
 return
 
 ^[::
@@ -100,7 +111,18 @@ return
 return
 
 CapsLock & ]::
-	MediaNext()
+	IfWinExist ahk_class SpotifyMainWindow
+	{
+		MediaNext()
+	}
+	else IfWinExist ahk_class ahk_class WMPlayerApp
+	{
+		MediaNext()
+	}
+	else
+	{
+		PandoraSkip()
+	}
 return
 
 CapsLock & WheelUp::
