@@ -32,10 +32,10 @@ If (A_IsCompiled <> 1) {
 StringLen, argLen, 1
 if (argLen = 0){
 	;Start mouse volume if it exists
-	mouseVolName = MouseVolume%fileExtension%
-	if (FileExist(mouseVolName) != ""){
-		Run, %mouseVolName%
-	}
+;	mouseVolName = MouseVolume%fileExtension%
+;	if (FileExist(mouseVolName) != ""){
+;		Run, %mouseVolName%
+;	}
 	
 	DynamicLoadScript()
 }
@@ -50,36 +50,6 @@ scriptName = %A_ScriptName%
 ;End of AutoExecute Section
 ;Causes skip over body so can chain autoexecute sections via #Include
 Gosub MyAutoHotKeyAHKEnd
-
-;Media Controls-------------------------------------------------------------------------------
-^!l::
-	PlayPause()
-Return
-
-^[::Send {Media_Prev}
-
-^]::Send {Media_Next}
-
-;Volume Controls-------------------------------------------------------------------------------------
-^m::
-	MuteUnmute()
-return
-
-^+[::
-	VolumeDown(2)
-return
-
-^+]::
-	VolumeUp(2)
-return
-
-;!WheelDown::
-	;VolumeDown(2)
-;return
-
-;!WheelUp::
-	;VolumeUp(2)
-;return
 
 ;More************************************************************************************
 
@@ -110,11 +80,6 @@ return
 
 ;Middle Mouse Button-------------------------------------------------------------------------------
 ^l::Send {MButton}
-
-;TurnOffLCD-----------------------------------------------------------------------------
-^!m::
-	TurnOffLCD()
-return
 
 ;Text Expansion-------------------------------------------------------------------------------
 ;Email signature line

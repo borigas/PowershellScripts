@@ -12,7 +12,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ;End of AutoExecute Section
 ;Causes skip over body so can chain autoexecute sections via #Include
-Gosub CapslockEnd
+Gosub CapsLockEnd
 
 ;Navigation Shortcuts-------------------------------------------------
 CapsLock & j::
@@ -56,56 +56,94 @@ CapsLock & o::
 Return
 
 ;Text Expansion--------------------------------------------------------
-;Type email closure
-CapsLock & z::
+;Type email signature
+CapsLock & a::
 	Send {CapsLock up}
 	TypeSignature()
 return
-;Type my name
+
 CapsLock & s::
 	Send {CapsLock up}
 	TypeMyName()
 return
 
-;Type my domain
 CapsLock & d::
 	Send {CapsLock up}
 	TypeMyDomain()
 return
 
-;Type my email address
-CapsLock & e::
+CapsLock & g::
 	Send {CapsLock up}
 	TypeMyEmail()
 return
 
-CapsLock & w::
+CapsLock & f::
 	Send {CapsLock up}
 	TypeWorkEmail()
 return
 
-;Type computer names
+;Mouse Hotkeys-------------------------------------------------
+CapsLock & MButton::
+	PlayPause()
+return
+
+CapsLock & WheelLeft::
+	MediaPrevious()
+return
+
+CapsLock & WheelRight::
+	MediaNext()
+return
+
+CapsLock & WheelUp::
+	VolumeUp(2)
+return
+
+CapsLock & WheelDown::
+	VolumeDown(2)
+return
+
+;Media Hotkeys-------------------------------------------------
+CapsLock & r::
+	PlayPause()
+return
+
+CapsLock & e::
+	MediaPrevious()
+return
+
+CapsLock & t::
+	MediaNext()
+return
+
+CapsLock & w::
+	VolumeUp(2)
+return
+
 CapsLock & q::
-	Send {CapsLock up}
-	TypeQwerty()
+	VolumeDown(2)
 return
-CapsLock & a::
-	Send {CapsLock up}
-	TypeAvalanche()
+
+CapsLock & Tab::
+	MuteUnmute()
 return
-CapsLock & b::
-	Send {CapsLock up}
-	TypeBruin()
+
+CapsLock & x::
+	PandoraPause()
 return
+
 CapsLock & c::
-	Send {CapsLock up}
-	TypeCornhusker()
+	PandoraSkip()
 return
 
+;Misc Actions--------------------------------------------------
+CapsLock & z::
+	TurnOffLCD()
+return
 
-;Minimize window
-Capslock & Space::
+;Minimize window-----------------------------------------------
+CapsLock & Space::
 	WinMinimize,A
 Return
 
-CapslockEnd:
+CapsLockEnd:

@@ -40,6 +40,22 @@ PlayPause(){
 	Send {Media_Play_Pause}
 }
 
+MediaNext(){
+	Send {Media_Next}
+}
+
+MediaPrevious(){
+	Send {Media_Prev}
+}
+
+PandoraSkip(){
+	Send ^!+9
+}
+
+PandoraPause(){
+	Send ^!+8
+}
+
 TypeSignature(){
 	SendInput Thanks,{Enter}Ben Origas
 }
