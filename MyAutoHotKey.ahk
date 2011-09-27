@@ -78,15 +78,6 @@ return
 	RefreshInternet()
 return
 
-;Middle Mouse Button-------------------------------------------------------------------------------
-^l::Send {MButton}
-
-;Text Expansion-------------------------------------------------------------------------------
-;Email signature line
-^!s::
-	TypeSignature()
-return
-
 ;Paste into command prompt
 #IfWinActive ahk_class ConsoleWindowClass
 	^v::
@@ -94,20 +85,9 @@ return
 	return
 #IfWinActive
 
-;Old************************************************************************************
-
 ;Reload script-------------------------------------------------------------------------------
 ^!+r::
 	Reload
 return
-
-;Ultramon Hotkey (Move to other monitor)--------------------------------------------------------------
-;^![::Send ^!n
-
-;Aero flip-------------------------------------------------------------------------------
-;^!]::Send #^{Tab}
-
-;Show Desktop-----------------------------------------------------------------------------
-;^![::Send #d
 
 MyAutoHotKeyAHKEnd:

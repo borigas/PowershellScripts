@@ -87,11 +87,19 @@ CapsLock & MButton::
 	PlayPause()
 return
 
-CapsLock & WheelLeft::
+^[::
+	Send {WheelLeft}
+return
+
+CapsLock & [::
 	MediaPrevious()
 return
 
-CapsLock & WheelRight::
+^]::
+	Send {WheelRight}
+return
+
+CapsLock & ]::
 	MediaNext()
 return
 
