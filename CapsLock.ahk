@@ -83,6 +83,10 @@ CapsLock & f::
 return
 
 ;Mouse Hotkeys-------------------------------------------------
+^CapsLock UP::
+	SetCapsLockState, Off
+return
+
 CapsLock & MButton::
 	IfWinExist ahk_class SpotifyMainWindow
 	{
