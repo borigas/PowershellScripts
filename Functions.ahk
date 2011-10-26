@@ -138,7 +138,7 @@ DynamicLoadScript(){
 		
 		;Direct to user's app data folder
 		EnvGet, AppDataFolder, LOCALAPPDATA
-		if(StrLen(%AppDataFolder%) < 10){
+		if(StrLen(AppDataFolder) < 10){
 			AppDataFolder = C:\AutoHotKey
 		}
 		
@@ -146,7 +146,6 @@ DynamicLoadScript(){
 		{
 			MsgBox, Creating %AppDataFolder%
 			FileCreateDir, %AppDataFolder%
-			
 		}
 		
 		loadFileName = %AppDataFolder%\%loadFileName%

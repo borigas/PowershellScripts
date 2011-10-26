@@ -31,20 +31,24 @@ CapsLock & i::
 	CheckModifiersNamedKey("Up")
 Return
 
-CapsLock & n::
-	CheckModifiersNamedKey("Home")
-Return
-
 CapsLock & h::
 	CheckModifiersNamedKey("Home")
-return
-
-CapsLock & m::
-	CheckModifiersNamedKey("End")
 Return
 
 CapsLock & `;::
 	CheckModifiersNamedKey("End")
+Return
+
+CapsLock & n::
+	Send {Control Down}
+	CheckModifiersNamedKey("Left")
+	Send {Control Up}
+return
+
+CapsLock & m::
+	Send {Control Down}
+	CheckModifiersNamedKey("Right")
+	Send {Control Up}
 Return
 
 CapsLock & u::
@@ -53,6 +57,18 @@ Return
 
 CapsLock & o::
 	CheckModifiersNamedKey("Delete")
+Return
+
+CapsLock & y::
+	Send {Control Down}
+	CheckModifiersNamedKey("Backspace")
+	Send {Control Up}
+Return
+
+CapsLock & p::
+	Send {Control Down}
+	CheckModifiersNamedKey("Delete")
+	Send {Control Up}
 Return
 
 ;Text Expansion--------------------------------------------------------
