@@ -9,6 +9,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #Include Functions.ahk
+#Include MonitorSwap.ahk
 
 ;End of AutoExecute Section
 ;Causes skip over body so can chain autoexecute sections via #Include
@@ -85,17 +86,17 @@ return
 
 CapsLock & d::
 	Send {CapsLock up}
-	TypeMyDomain()
-return
-
-CapsLock & g::
-	Send {CapsLock up}
-	TypeMyEmail()
+	SwapMonitorWindows()
 return
 
 CapsLock & f::
 	Send {CapsLock up}
 	TypeWorkEmail()
+return
+
+CapsLock & g::
+	Send {CapsLock up}
+	TypeMyEmail()
 return
 
 ;Mouse Hotkeys-------------------------------------------------
@@ -104,18 +105,18 @@ return
 return
 
 CapsLock & MButton::
-	IfWinExist ahk_class SpotifyMainWindow
-	{
+	;IfWinExist ahk_class SpotifyMainWindow
+	;{
+		;PlayPause()
+	;}
+	;else IfWinExist ahk_class ahk_class WMPlayerApp
+	;{
 		PlayPause()
-	}
-	else IfWinExist ahk_class ahk_class WMPlayerApp
-	{
-		PlayPause()
-	}
-	else
-	{
-		PandoraPause()
-	}
+	;}
+	;else
+	;{
+		;PandoraPause()
+	;}
 return
 
 ^[::
