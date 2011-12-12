@@ -81,12 +81,12 @@ return
 
 CapsLock & s::
 	Send {CapsLock up}
-	TypeMyName()
+	SwapMonitorWindows()
 return
 
 CapsLock & d::
 	Send {CapsLock up}
-	SwapMonitorWindows()
+	TypeMyDomain()
 return
 
 CapsLock & f::
