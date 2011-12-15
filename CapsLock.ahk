@@ -15,7 +15,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ;Causes skip over body so can chain autoexecute sections via #Include
 Gosub CapsLockEnd
 
-;Navigation Shortcuts-------------------------------------------------
+;Navigation and Editing -------------------------------------------------
 CapsLock & j::
 	CheckModifiersNamedKey("Left")
 Return
@@ -81,7 +81,7 @@ return
 
 CapsLock & s::
 	Send {CapsLock up}
-	SwapMonitorWindows()
+	TypeMyName()
 return
 
 CapsLock & d::
@@ -105,18 +105,7 @@ return
 return
 
 CapsLock & MButton::
-	;IfWinExist ahk_class SpotifyMainWindow
-	;{
-		;PlayPause()
-	;}
-	;else IfWinExist ahk_class ahk_class WMPlayerApp
-	;{
-		PlayPause()
-	;}
-	;else
-	;{
-		;PandoraPause()
-	;}
+	PlayPause()
 return
 
 ^[::
@@ -132,18 +121,7 @@ return
 return
 
 CapsLock & ]::
-	IfWinExist ahk_class SpotifyMainWindow
-	{
-		MediaNext()
-	}
-	else IfWinExist ahk_class ahk_class WMPlayerApp
-	{
-		MediaNext()
-	}
-	else
-	{
-		PandoraSkip()
-	}
+	MediaNext()
 return
 
 CapsLock & WheelUp::
@@ -179,22 +157,12 @@ CapsLock & Tab::
 	MuteUnmute()
 return
 
-CapsLock & x::
-	PandoraPause()
-return
-
-CapsLock & c::
-	PandoraSkip()
-return
-
 ;Misc Actions--------------------------------------------------
 CapsLock & z::
 	TurnOffLCD()
 return
 
-;Minimize window-----------------------------------------------
 CapsLock & Space::
-	WinMinimize,A
-Return
-
+	SwapMonitorWindows()
+return
 CapsLockEnd:
