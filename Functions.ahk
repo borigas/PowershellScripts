@@ -64,6 +64,10 @@ TypeMyName(){
 	SendInput Ben Origas
 }
 
+TypeMyUsername(){
+	SendInput borigas
+}
+
 TypeMyDomain(){
 	SendInput benorigas.com
 }

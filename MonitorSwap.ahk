@@ -75,7 +75,7 @@ SwapMonitorWindows(){
 			newWidth := w * xScale
 			newHeight := h * yScale
 			
-			if(procName = spotify.exe){
+			if(procName = "spotify.exe"){
 				MsgBox % "Moving " . procName . " from " . currentMonitor . " to " . nextMonitor . " x: " . x . " y: " . y . " w: " . w . " h: " . h
 			}
 			
