@@ -1,4 +1,3 @@
-;
 ; AutoHotkey Version: 1.x
 ; Language:       English
 ; Platform:       Windows 7
@@ -56,7 +55,7 @@ return
 
 CapsLock & m::
 	Send {Control Down}
-	CheckModifiersNamedKey("Right")
+	CheckModifiersNamedKey("Right")8
 	Send {Control Up}
 Return
 
@@ -109,6 +108,10 @@ return
 
 ;Mouse Hotkeys-------------------------------------------------
 CapsLock UP::
+	SetCapsLockState, Off
+return
+
+^CapsLock UP::
 	SetCapsLockState, Off
 return
 
@@ -201,6 +204,6 @@ return
 
 ;Exit script
 ^!+x::
-	Exit, 0
+	ExitApp, 0
 return
 CapsLockEnd:
