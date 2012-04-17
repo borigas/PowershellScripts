@@ -40,6 +40,14 @@ CapsLock & `;::
 	CheckModifiersNamedKey("End")
 Return
 
+CapsLock & ,::
+	CheckModifiersNamedKey("PgUp")
+Return
+
+CapsLock & .::
+	CheckModifiersNamedKey("PgDn")
+Return
+
 CapsLock & n::
 	Send {Control Down}
 	CheckModifiersNamedKey("Left")
