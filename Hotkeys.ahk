@@ -198,4 +198,9 @@ return
 ^!+r::
 	Reload
 return
+
+;Exit script
+^!+x::
+	Exit, 0
+return
 CapsLockEnd:
