@@ -14,7 +14,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #MaxHotkeysPerInterval 200
 #NoTrayIcon
 #Include Functions.ahk
-#Include Hotkeys.ahk
+#Include Hotkeys_dvorak.ahk
 #Include HID_Control.ahk
 
 
