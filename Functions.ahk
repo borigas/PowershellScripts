@@ -56,6 +56,26 @@ PandoraPause(){
 	Send ^!+8
 }
 
+Undo(){
+	Send ^z
+}
+
+Cut(){
+	Send ^x
+}
+
+Copy(){
+	Send ^c
+}
+
+Paste(){
+	Send ^v
+}
+
+Save(){
+	Send ^s
+}
+
 TypeSignature(){
 	SendInput Thanks,{Enter}Ben Origas
 }

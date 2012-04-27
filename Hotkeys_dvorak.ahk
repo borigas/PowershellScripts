@@ -86,10 +86,10 @@ CapsLock & a::
 	TypeSignature()
 return
 
-CapsLock & o::
-	Send {CapsLock up}
-	TypeMyName()
-return
+;sCapsLock & o::
+;	Send {CapsLock up}
+;	TypeMyName()
+;return
 
 CapsLock & e::
 	Send {CapsLock up}
@@ -111,7 +111,7 @@ CapsLock UP::
 	SetCapsLockState, Off
 return
 
-^CapsLock UP::
+!CapsLock UP::
 	SetCapsLockState, Off
 return
 
@@ -119,7 +119,7 @@ CapsLock & MButton::
 	PlayPause()
 return
 
-^[::
+![::
 	Send {WheelLeft}
 return
 
@@ -127,7 +127,7 @@ CapsLock & [::
 	MediaPrevious()
 return
 
-^]::
+!]::
 	Send {WheelRight}
 return
 
@@ -164,13 +164,34 @@ CapsLock & '::
 	VolumeDown(2)
 return
 
-CapsLock & Tab::
+CapsLock & `::
 	MuteUnmute()
 return
 
-;Misc Actions--------------------------------------------------
+;Dvorak helpers-----------------------------------------------
 CapsLock & `;::
-#z::
+	Undo()
+return
+
+CapsLock & q::
+	Cut()
+return
+
+CapsLock & j::
+	Copy()
+return
+
+CapsLock & k::
+	Paste()
+return
+
+CapsLock & o::
+	Save()
+return
+
+;Misc Actions--------------------------------------------------
+CapsLock & Tab::
+#`;::
 	TurnOffLCD()
 return
 
