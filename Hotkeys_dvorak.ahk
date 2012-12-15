@@ -160,16 +160,16 @@ CapsLock & ,::
 	VolumeUp(2)
 return
 
-CapsLock & '::
+CapsLock & `;::
 	VolumeDown(2)
 return
 
-CapsLock & `::
+CapsLock & Tab::
 	MuteUnmute()
 return
 
 ;Dvorak helpers-----------------------------------------------
-CapsLock & `;::
+CapsLock & '::
 	Undo()
 return
 
@@ -190,8 +190,8 @@ CapsLock & o::
 return
 
 ;Misc Actions--------------------------------------------------
-CapsLock & Tab::
-#`;::
+CapsLock & `::
+#'::
 	TurnOffLCD()
 return
 
