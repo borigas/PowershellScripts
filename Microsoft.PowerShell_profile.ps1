@@ -66,4 +66,4 @@ function get-gitpull { git pull }
 set-alias pu get-gitpull
 
 #Go to Beehive dir
-cd C:\workspaces\beehive\Eam
+cd C:\workspaces\beehive
