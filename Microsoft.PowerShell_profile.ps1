@@ -55,15 +55,26 @@ AmIAdmin
 
 ###### Set Aliases ######
 set-alias notepad "C:\Program Files (x86)\Notepad++\notepad++.exe"
+$hostfile = $env:SystemRoot + "\system32\drivers\etc\hosts"
+function edit-hostfile { 
+	$hostfilepath = $env:SystemRoot + "\system32\drivers\etc\hosts"
+	notepad $hostfilepath 
+}
+set-alias hosts edit-hostfile
+function Get-ProfileDirectory {
+	$profileFile = Get-ChildItem $profile
+	$profileFile.DirectoryName
+}
+set-alias profileDir Get-ProfileDirectory
 
 #Setup git and PoshGit
 . (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
 . $env:github_posh_git\profile.example.ps1
 
-function get-gitstatus { git status }
-set-alias gs get-gitstatus
-function get-gitpull { git pull }
-set-alias pu get-gitpull
+function gitstatus { git status }
+set-alias gs gitstatus
+function gitpull { git pull }
+set-alias pu gitpull
 
 #Go to Beehive dir
 cd C:\workspaces\beehive
