@@ -45,6 +45,7 @@ function AmIAdmin()
 	else
 	{
 		$title = $title + " (Administrator)"
+		(Get-Host).UI.RawUI.Backgroundcolor="Black"
 	}
 	[System.Console]::Title = $title
 }
