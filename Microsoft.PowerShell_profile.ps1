@@ -23,7 +23,7 @@ function VsVars32()
 	$vs110comntools = (Get-ChildItem env:VS110COMNTOOLS).Value    
 	$batchFile = [System.IO.Path]::Combine($vs110comntools, "vsvars32.bat")
 	Get-Batchfile $batchFile
-	[System.Console]::Title = "Visual Studio " + $version + " Windows Powershell"
+	[System.Console]::Title = "Powershell w/ Visual Studio " + $version
 }
 ###### Functions Used to Load VS Command Prompt #####
 
