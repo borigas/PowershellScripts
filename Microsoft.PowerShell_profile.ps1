@@ -78,4 +78,4 @@ function gitpull { git pull }
 set-alias pu gitpull
 
 #Go to Beehive dir
-cd C:\workspaces\beehive
+cd C:\workspaces\ComputerVision
