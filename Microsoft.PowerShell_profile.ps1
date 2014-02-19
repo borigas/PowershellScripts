@@ -40,7 +40,6 @@ function AmIAdmin()
 	{ 
 		$title = $title + " (Non-Administrator)"
 		(Get-Host).UI.RawUI.Backgroundcolor="Black"
-		cls
 	}
 	else
 	{
@@ -48,18 +47,20 @@ function AmIAdmin()
 		(Get-Host).UI.RawUI.Backgroundcolor="Black"
 	}
 	[System.Console]::Title = $title
+    return $IsAdmin
 }
 
 ###### Run Functions on Startup ######
 VsVars32
-AmIAdmin
+
+$IsAdmin = AmIAdmin
 
 ###### Set Aliases ######
 set-alias notepad "C:\Program Files (x86)\Notepad++\notepad++.exe"
-$hostfile = $env:SystemRoot + "\system32\drivers\etc\hosts"
+
+$hosts = $env:SystemRoot + "\system32\drivers\etc\hosts"
 function edit-hostfile { 
-	$hostfilepath = $env:SystemRoot + "\system32\drivers\etc\hosts"
-	notepad $hostfilepath 
+	notepad $hosts 
 }
 set-alias hosts edit-hostfile
 function Get-ProfileDirectory {
@@ -72,10 +73,33 @@ set-alias profileDir Get-ProfileDirectory
 . (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
 . $env:github_posh_git\profile.example.ps1
 
+$global:GitPromptSettings.WorkingForegroundColor    = [ConsoleColor]::Red 
+$global:GitPromptSettings.UntrackedForegroundColor  = [ConsoleColor]::Red
+$global:GitPromptSettings.IndexForegroundColor  = [ConsoleColor]::Green
+
+if(!$IsAdmin){
+    Start-SshAgent
+}
+
 function gitstatus { git status }
 set-alias gs gitstatus
 function gitpull { git pull }
 set-alias pu gitpull
+function stash-pull{
+	git stash
+	git pull
+	git stash pop
+}
+function publishBranch{
+    $fullBranchName = git symbolic-ref HEAD
+    $shortBranchName = $fullBranchName.Substring($fullBranchName.LastIndexOf("/")+1)
+    git push --set-upstream origin $shortBranchName
+}
+set-alias gpub publishBranch
+
+function mongo {
+    . "C:\workspaces\ComputerVision\DontPanic.CV.Tracking\Externals\MongoDb\mongo.exe" --shell --host tfsbuild-eh
+}
 
 #Go to Beehive dir
 cd C:\workspaces\ComputerVision
