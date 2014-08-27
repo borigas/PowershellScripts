@@ -1,4 +1,6 @@
 # Located in %USERPROFILE%\.gitconfig
+# Can be located elsewhere by using a symlink
+# cmd /c mklink %USERPROFILE\.gitconfig (absolutePath)\.gitconfig
 
 [user]
 	name = Ben Origas
