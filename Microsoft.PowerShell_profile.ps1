@@ -8,6 +8,7 @@ function Get-Batchfile ($file) {
 	}
 }
 
+###### Function Used to Load VS Command Prompt #####
 function VsVars32()
 {
 	#$version = "9.0"
@@ -25,7 +26,6 @@ function VsVars32()
 	Get-Batchfile $batchFile
 	[System.Console]::Title = "Powershell w/ Visual Studio " + $version
 }
-###### Functions Used to Load VS Command Prompt #####
 
 ###### Function Used to Set Background to Light Blue If not Admin ######
 
@@ -101,5 +101,5 @@ function mongo {
     . "C:\workspaces\ComputerVision\DontPanic.CV.Tracking\Externals\MongoDb\mongo.exe" --shell --host tfsbuild-eh
 }
 
-#Go to Beehive dir
+#Go to CV dir
 cd C:\workspaces\ComputerVision
