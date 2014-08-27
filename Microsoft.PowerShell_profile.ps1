@@ -102,4 +102,15 @@ function mongo {
 }
 
 #Go to CV dir
-cd C:\workspaces\ComputerVision
+$cvDir = "C:\workspaces\ComputerVision"
+$workDir = "C:\workspaces"
+$otherWorkDir = "D:\workspaces"
+If(Test-Path $cvDir){
+	cd $cvDir
+}
+ElseIf(Test-Path $workDir){
+	cd $workDir
+}
+ElseIf(Test-Path $otherWorkDir){
+	cd $otherWorkDir
+}
