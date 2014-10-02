@@ -101,6 +101,9 @@ function mongo {
     . "C:\workspaces\ComputerVision\DontPanic.CV.Tracking\Externals\MongoDb\mongo.exe" --shell --host tfsbuild-eh
 }
 
+#Install Jump Location
+Import-Module "$(Get-ProfileDirectory)\Modules\Jump-Location-0.6.0\Jump.Location.psd1"
+
 #Go to CV dir
 $cvDir = "C:\workspaces\ComputerVision"
 $workDir = "C:\workspaces"
