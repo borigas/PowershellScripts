@@ -98,7 +98,7 @@ function publishBranch{
 set-alias gpub publishBranch
 
 function mongo {
-    . "C:\workspaces\ComputerVision\DontPanic.CV.Tracking\Externals\MongoDb\mongo.exe" --shell --host tfsbuild-eh
+    . "C:\MongoDb\bin\mongo.exe" --shell --host HV-Mongo01
 }
 
 #Install Jump Location
