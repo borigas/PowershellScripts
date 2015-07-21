@@ -1,3 +1,5 @@
+#### Set execution policy ####
+
 #### Functions Used to Load VS Command Prompt #####
 
 function Get-Batchfile ($file) {
@@ -20,9 +22,10 @@ function VsVars32()
 	#$VsToolsDir = [System.IO.Path]::GetDirectoryName($VsInstallPath)
 	#$VsToolsDir = [System.IO.Path]::Combine($VsToolsDir, "Tools")
 	
-	$version = "11.0"
-	$vs110comntools = (Get-ChildItem env:VS110COMNTOOLS).Value    
-	$batchFile = [System.IO.Path]::Combine($vs110comntools, "vsvars32.bat")
+	#$version = "11.0"
+	$version = "12.0"
+	$vsComntools = (Get-ChildItem env:VS120COMNTOOLS).Value    
+	$batchFile = [System.IO.Path]::Combine($vsComntools, "vsvars32.bat")
 	Get-Batchfile $batchFile
 	[System.Console]::Title = "Powershell w/ Visual Studio " + $version
 }
