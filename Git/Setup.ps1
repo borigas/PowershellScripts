@@ -1,5 +1,5 @@
 $fileName = ".gitconfig"
-$targetPath = $pwd.Path + "\" + $fileName
+$targetPath = $PSScriptRoot + "\" + $fileName
 $sourcePath = (Resolve-Path ~).Path + "\" + $fileName
 if(-Not (Test-Path $sourcePath)){
 	cmd /c mklink "$sourcePath" "$targetPath"
