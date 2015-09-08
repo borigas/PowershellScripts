@@ -190,12 +190,13 @@ return
 	KillProcess("Chrome", "chrome.exe")
 return
 
+;;; Disabled. Build into Windows 10
 ;Paste into command prompt
-#IfWinActive ahk_class ConsoleWindowClass
-	^v::
-		SendInput {Raw}%clipboard%
-	return
-#IfWinActive
+;#IfWinActive ahk_class ConsoleWindowClass
+;	^v::
+;		SendInput {Raw}%clipboard%
+;	return
+;#IfWinActive
 
 ;Reload script-------------------------------------------------------------------------------
 ^!+r::
