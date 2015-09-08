@@ -81,30 +81,30 @@ Return
 
 ;Text Expansion--------------------------------------------------------
 ;Type email signature
-CapsLock & a::
-	Send {CapsLock up}
-	TypeSignature()
-return
+;CapsLock & a::
+;	Send {CapsLock up}
+;	TypeSignature()
+;return
 
 ;sCapsLock & o::
 ;	Send {CapsLock up}
 ;	TypeMyName()
 ;return
 
-CapsLock & e::
-	Send {CapsLock up}
-	TypeMyDomain()
-return
+;CapsLock & e::
+;	Send {CapsLock up}
+;	TypeMyDomain()
+;return
 
-CapsLock & u::
-	Send {CapsLock up}
-	TypeMyUsername()
-return
+;CapsLock & u::
+;	Send {CapsLock up}
+;	TypeMyUsername()
+;return
 
-CapsLock & i::
-	Send {CapsLock up}
-	TypeMyEmail()
-return
+;CapsLock & i::
+;	Send {CapsLock up}
+;	TypeMyEmail()
+;return
 
 ;Mouse Hotkeys-------------------------------------------------
 CapsLock UP::
