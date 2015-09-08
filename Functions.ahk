@@ -77,7 +77,8 @@ Save(){
 }
 
 TypeSignature(){
-	SendInput Thanks,{Enter}Ben Origas
+; Do nothing
+;	SendInput
 }
 
 TypeMyName(){
