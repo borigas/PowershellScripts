@@ -80,31 +80,32 @@ CapsLock & p::
 Return
 
 ;Text Expansion--------------------------------------------------------
-;Type email signature
-CapsLock & a::
-	Send {CapsLock up}
-	TypeSignature()
-return
+; Disable text expansion. Don't use very often
+;;Type email signature
+;CapsLock & a::
+;	Send {CapsLock up}
+;	TypeSignature()
+;return
 
-CapsLock & s::
-	Send {CapsLock up}
-	TypeMyName()
-return
+;CapsLock & s::
+;	Send {CapsLock up}
+;	TypeMyName()
+;return
 
-CapsLock & d::
-	Send {CapsLock up}
-	TypeMyDomain()
-return
+;CapsLock & d::
+;	Send {CapsLock up}
+;	TypeMyDomain()
+;return
 
-CapsLock & f::
-	Send {CapsLock up}
-	TypeMyUsername()
-return
+;CapsLock & f::
+;	Send {CapsLock up}
+;	TypeMyUsername()
+;return
 
-CapsLock & g::
-	Send {CapsLock up}
-	TypeMyEmail()
-return
+;CapsLock & g::
+;	Send {CapsLock up}
+;	TypeMyEmail()
+;return
 
 ;Mouse Hotkeys-------------------------------------------------
 CapsLock UP::

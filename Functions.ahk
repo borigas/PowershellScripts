@@ -81,39 +81,28 @@ TypeSignature(){
 }
 
 TypeMyName(){
-	SendInput Ben Origas
+; Do nothing
+;	SendInput 
 }
 
 TypeMyUsername(){
-	SendInput borigas
+; Do nothing
+;	SendInput 
 }
 
 TypeMyDomain(){
-	SendInput benorigas.com
+; Do nothing
+;	SendInput 
 }
 
 TypeMyEmail(){
-	SendInput borigas@gmail.com
+; Do nothing
+;	SendInput 
 }
 
 TypeWorkEmail(){
-	SendInput borigas@nebraskaglobal.com
-}
-
-TypeQwerty(){
-	SendInput Qwerty
-}
-
-TypeAvalanche(){
-	SendInput Avalanche
-}
-
-TypeBruin(){
-	SendInput Bruin
-}
-
-TypeCornhusker(){
-	SendInput Cornhusker
+; Do nothing
+;	SendInput 
 }
 
 KillProcess(FriendlyName, ProcessName){
