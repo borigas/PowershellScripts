@@ -1,4 +1,3 @@
-$fileName = ".gitconfig"
 $targetPath = $pwd.Path
 $sourcePath = (Resolve-Path ~).Path + "\Documents\WindowsPowerShell\"
 if(-Not (Test-Path $sourcePath)){
