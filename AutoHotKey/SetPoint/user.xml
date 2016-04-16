@@ -1,0 +1,312 @@
+<Source>
+   <UserOptions>
+      <UserOption Name="BeepKeyboardSettings">0</UserOption>
+      <UserOption Name="ShowKeyboardPopupSettings">1</UserOption>
+      <UserOption Name="ShowKeyboardTraySettings">1</UserOption>
+      <UserOption Name="ShowTrayIcon">1</UserOption>
+      <UserOption Name="ShowKeyboardSettings">1</UserOption>
+   </UserOptions>
+   <Apps>
+      <App>c:\\program files (x86)\\internet explorer\\iexplore.exe</App>
+      <App>c:\\progra~2\\micros~2\\office12\\outlook.exe</App>
+      <App>c:\\progra~2\\micros~2\\office12\\winword.exe</App>
+      <App>c:\\progra~2\\micros~2\\office12\\powerpnt.exe</App>
+      <App>c:\\progra~2\\micros~2\\office12\\excel.exe</App>
+   </Apps>
+   <Devices>
+      <Device Class="Receiver" Model="50331698">
+         <Param AppSpecific="1" LowBatPercentLevel="5" UserBatteryMode="0" VScrollAcceleration="0" VScrollSpeed="0" VoIPClient="" AllowGestureInertiaScroll="0" EnableGestureTapToClick="0" EnableXYTracking="0" GestureAcPan="0" GestureAppSwitch="0" GestureBackForward="0" GesturePageUpDown="0" GestureVerticalScroll="0" GestureWinSnap="0" SmartWheelAppSpecific="1"/>
+         <Buttons/>
+      </Device>
+      <Device DisplayName="Performance Mouse MX" Class="PointingDevice" Model="16777377" NumberOfButtons="12" ConnectionID="">
+         <Param ACCELERATION="1" AIRACCELERATION="4" AirSpeedX="50" AirSpeedY="50" AppSpecific="1" ButtonSwapped="0" DPIActive="1" DPIDecreaseButtonNo="0" DPIIncreaseButtonNo="0" DPIResIndex="0" DPIResolutionPresets="" DistinctAirCursor="1" EnableCentering="1" GameDeviceSuggestGameMode="0" GameDeviceSuggestOS="0" GameModeButtonAddGame="0" GameModeButtonResDown="0" GameModeButtonResUp="0" GameModeButtonResUpWrap="0" GameModeKeepAcceleration="1" GameModeKeepKeypress="1" GameModeKeepOther="0" GameModeKeepRightLeft="1" GameModeKeepSpeed="1" GameModeNotification="0" GameModeResolutionNbPreset="0" GameModeResolutionPresets="" GameModeResolutionPresetsY="" GameParticipate="0" GameParticipateDefault="0" GamePowerMode="0" GameReportEnabled="1" GameReportRate="2" GameResIndex="2" GameUseAdvanced="0" LowBatPercentLevel="5" MaxGameModeResolutionXY="0" MenuLocBottom="-1" MenuLocLeft="-1" MenuLocRight="-1" MenuLocTop="-1" MenuSize="0" OfficePowerMode="0" ShowButtonsPage="1" SmartMove="0" SpeedX="71" SpeedY="71" StromboliMice="0" TouchPadMice="0" TrackballMice="0" Trails="0" TrailsLength="0" UserBatteryMode="0" VScrollAcceleration="0" VScrollSpeed="0" VoIPClient="" XYResolutionLinked="1" smartshiftmode="1" AllowGestureInertiaScroll="0" EnableGestureTapToClick="0" EnableXYTracking="0" GestureAcPan="0" GestureAppSwitch="0" GestureBackForward="0" GesturePageUpDown="0" GestureVerticalScroll="0" GestureWinSnap="0" HiResEnabled="1" ShowMouseCursorPage="1" SmartWheelAppSpecific="1"/>
+         <Buttons>
+            <Button Number="1" Name="1">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="1" FirstRepeatDelay="0" RepeatDelay="0" Silent="1" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="LeftClick">
+                     <Handler Class="MouseButton">
+                        <Param ButtonName="PrimaryButton"/>
+                     </Handler>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="2" Name="2">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="2" FirstRepeatDelay="0" RepeatDelay="0" Silent="1" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="RightClick">
+                     <Handler Class="MouseButton">
+                        <Param ButtonName="SecondaryButton"/>
+                     </Handler>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="3" Name="3">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="3" FirstRepeatDelay="0" RepeatDelay="0" Silent="0" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="MiddleMouseButton">
+                     <Handler Class="MouseButton">
+                        <Param ButtonName="MiddleButton"/>
+                     </Handler>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="5" Name="4">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="5" FirstRepeatDelay="0" RepeatDelay="0" Silent="0" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="BrowserForward">
+                     <Handler Class="BrowserCommands">
+                        <Param ActionName="FORWARD" ShowUIDlg="0" URL=""/>
+                     </Handler>
+                     <AppOverride App="mm.exe" HandlerSet="AppOverride_MindMapperBack">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="BACK" ExeName="MM.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="winword.exe" HandlerSet="AppOverride_WordBack">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="BACK" ExeName="WINWORD.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="msimn.exe" HandlerSet="AppOverride_OutlookExpressBack">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="BACK" ExeName="MSIMN.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="outlook.exe" HandlerSet="AppOverride_OutlookBack">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="BACK" ExeName="Outlook.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="powerpnt.exe" HandlerSet="AppOverride_PowerPointBack">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="BACK" ExeName="POWERPNT.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="nlnotes.exe" HandlerSet="AppOverride_LotusNotesBack">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="BACK" ExeName="NLNOTES.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="excel.exe" HandlerSet="AppOverride_ExcelBack">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="BACK" ExeName="EXCEL.exe"/>
+                        </Handler>
+                     </AppOverride>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="4" Name="5">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="4" FirstRepeatDelay="0" RepeatDelay="0" Silent="0" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="Back">
+                     <Handler Class="BrowserCommands">
+                        <Param ActionName="BACK" ShowUIDlg="0" URL=""/>
+                     </Handler>
+                     <AppOverride App="mm.exe" HandlerSet="AppOverride_MindMapperForward">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="FORWARD" ExeName="MM.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="winword.exe" HandlerSet="AppOverride_WordForward">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="FORWARD" ExeName="WINWORD.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="msimn.exe" HandlerSet="AppOverride_OutlookExpressForward">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="FORWARD" ExeName="MSIMN.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="outlook.exe" HandlerSet="AppOverride_OutlookForward">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="FORWARD" ExeName="Outlook.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="powerpnt.exe" HandlerSet="AppOverride_PowerPointForward">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="FORWARD" ExeName="POWERPNT.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="nlnotes.exe" HandlerSet="AppOverride_LotusNotesForward">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="FORWARD" ExeName="NLNOTES.exe"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="excel.exe" HandlerSet="AppOverride_ExcelForward">
+                        <Handler Class="AppOverrides">
+                           <Param ActionName="FORWARD" ExeName="EXCEL.exe"/>
+                        </Handler>
+                     </AppOverride>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="9" Name="6">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="9" FirstRepeatDelay="0" RepeatDelay="0" Silent="0" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="VOLUMEMUTE">
+                     <Handler Class="VolumeMonitor">
+                        <Param Action="VOLUMEMUTE" ActionImageFile="mute.png" ActionString="IDS_MUTE_OSD" ActionStringUnmute="IDS_UNMUTE_OSD" FontColor="" FontName="" FontSize="" ImageFileUnmute="unmute.png" RepeatDelay="0" RepeatFirstDelay="0" ShowOSD=""/>
+                     </Handler>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="7" Name="7">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="7" FirstRepeatDelay="0" RepeatDelay="0" Silent="0" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="KeystrokeAssignment">
+                     <Handler Class="KeystrokeAssignment">
+                        <Param DisplayName="Ctrl+[" LParam="1703937" Modifier="2" VirtualKey="219"/>
+                     </Handler>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="8" Name="8">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="8" FirstRepeatDelay="0" RepeatDelay="0" Silent="0" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="KeystrokeAssignment">
+                     <Handler Class="KeystrokeAssignment">
+                        <Param DisplayName="Ctrl+]" LParam="1769473" Modifier="2" VirtualKey="221"/>
+                     </Handler>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="6" Name="9">
+               <Param IconLoc="" Type=""/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="6" FirstRepeatDelay="0" RepeatDelay="0" Silent="0" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="KeystrokeAssignment">
+                     <Handler Class="KeystrokeAssignment">
+                        <Param DisplayName="Ctrl+Caps Lock" LParam="3801089" Modifier="2" VirtualKey="20"/>
+                     </Handler>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="1664" Name="1664">
+               <Param IconLoc="" Type="HIDDEN|SMARTSHIFT"/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="1664" FirstRepeatDelay="0" RepeatDelay="0" Silent="1" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="AppOverride_AllProgramsSmartShiftStromboli_NOUI">
+                     <AppOverride App="acrord32.exe" HandlerSet="AppOverride_AcrobatReaderSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="winword.exe" HandlerSet="AppOverride_WordSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="ois.exe" HandlerSet="AppOverride_MicrosoftPicManagerSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="acrobat.exe" HandlerSet="AppOverride_AcrobatReaderSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="wordpad.exe" HandlerSet="AppOverride_WordPadSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="outlook.exe" HandlerSet="AppOverride_OutlookSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="photoshop.exe" HandlerSet="AppOverride_AdobePhotoshopSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="powerpnt.exe" HandlerSet="AppOverride_PowerPointSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="iexplore.exe" HandlerSet="AppOverride_IExploreSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="realplay.exe" HandlerSet="AppOverride_RealPlayerSmartShiftStromboli_NOUI"/>
+                     <AppOverride App="excel.exe" HandlerSet="AppOverride_ExcelSmartShiftStromboli_NOUI"/>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="1234" Name="1234">
+               <Param IconLoc="" Type="HIDDEN|VSCROLL"/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="1234" FirstRepeatDelay="0" RepeatDelay="0" Silent="1" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="AppOverride_AllProgramsVertScroll">
+                     <Handler Class="VerticalScroll">
+                        <Param Acceleration="90" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="20" ScrollFactor="2" ShowSmoothScroll="0"/>
+                     </Handler>
+                     <AppOverride App="acrord32.exe" HandlerSet="AppOverride_AcrobatReaderVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="0" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="1" MaxAcceleration="15" MaxScrollFactor="3" ScrollFactor="3" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="winword.exe" HandlerSet="AppOverride_WordVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="90" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="20" ScrollFactor="2" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="ois.exe" HandlerSet="AppOverride_MicrosoftPicManagerVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="90" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="3" ScrollFactor="2" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="acrobat.exe" HandlerSet="AppOverride_AcrobatReaderVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="0" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="1" MaxAcceleration="15" MaxScrollFactor="3" ScrollFactor="3" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="wordpad.exe" HandlerSet="AppOverride_WordPadVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="50" AllowReverseScroll="1" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="20" ScrollFactor="3" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="outlook.exe" HandlerSet="AppOverride_OutlookVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="90" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="20" ScrollFactor="1" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="photoshop.exe" HandlerSet="AppOverride_AdobePhotoshopVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="10" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="20" MaxScrollFactor="3" ScrollFactor="2" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="powerpnt.exe" HandlerSet="AppOverride_PowerPointVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="90" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="20" ScrollFactor="1" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="iexplore.exe" HandlerSet="AppOverride_IExploreVScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="50" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="20" ScrollFactor="1" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="nlnotes.exe" HandlerSet="AppOverride_LotusNotesVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="90" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="3" ScrollFactor="1" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="realplay.exe" HandlerSet="AppOverride_RealPlayerVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="0" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="1" MaxAcceleration="100" MaxScrollFactor="20" ScrollFactor="3" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                     <AppOverride App="excel.exe" HandlerSet="AppOverride_ExcelVertScroll">
+                        <Handler Class="VerticalScroll">
+                           <Param Acceleration="90" AllowReverseScroll="0" AllowSmoothScroll="0" ForceScrollFactor="0" MaxAcceleration="100" MaxScrollFactor="20" ScrollFactor="1" ShowSmoothScroll="0"/>
+                        </Handler>
+                     </AppOverride>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+            <Button Number="1346" Name="1346">
+               <Param IconLoc="" Type="HIDDEN|HSCROLL"/>
+               <Trigger Class="ButtonPress">
+                  <Param Button="1346" FirstRepeatDelay="0" RepeatDelay="0" Silent="1" Type="0" EventType="100663297"/>
+                  <TriggerState Name="ButtonDownUp" HandlerSet="AppOverride_AllProgramsBorneoHorzScroll">
+                     <Handler Class="HorizontalScroll">
+                        <Param Acceleration="0" ElapseTime="25" Repeat="1" Right="1"/>
+                     </Handler>
+                  </TriggerState>
+               </Trigger>
+            </Button>
+         </Buttons>
+      </Device>
+      <Device DisplayName="LED Display" Class="DisplayDevice" Model="67108877" NumberOfButtons="0" ConnectionID="">
+         <Param AfternoonGreeting="Good afternoon" AlertBlinkLED="1" AlertPlaySound="1" AppSpecific="1" BeepForCapsLockFMode="1" BuddyList="" DisplayGreetings="0" EnableEmailNotification="1" EnableIMNotification="1" EnableTouchMedia="1" EveningGreeting="Good evening" GreetingsName="" HourBlinkDots="0" InterruptMedia="1" LCDStartPos="3" Lead_0_Time="0" LowBatPercentLevel="5" Messenger="" MorningGreeting="Good morning" NotificationDuration="60000" PutCalcResInClipboard="1" Time_Format="1" UseBuddyList="0" UseCelcius="0" UserBatteryMode="0" VScrollAcceleration="0" VScrollSpeed="0" VoIPClient="" connected="connected" connecting="connecting" failed="failed" months="January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December" nonetwork="no network" AllowGestureInertiaScroll="1" EnableGestureTapToClick="0" EnableXYTracking="1" GestureAcPan="0" GestureAppSwitch="0" GestureBackForward="1" GesturePageUpDown="1" GestureVerticalScroll="0" GestureWinSnap="1" SmartWheelAppSpecific="1"/>
+         <Buttons/>
+      </Device>
+   </Devices>
+</Source>
