@@ -13,19 +13,13 @@ if(!(Test-Path -Path $ahkDir)){
 
 $ahkExePath = "$ahkDir/MyAutoHotKey.exe"
 
-$exists = $False
 if(Test-Path -Path $ahkExePath){
-    rm $ahkExePath
     $exists = $True
 }
 
 $url = "https://github.com/borigas/Settings/blob/master/AutoHotKey/MyAutoHotKey.exe?raw=true"
 
 Invoke-WebRequest -Uri $url -OutFile $ahkExePath
-
-If(!$exists){
-    schtasks /Delete /TN AutoHotKey
-}
 
 $user = "$([Environment]::UserDomainName)\$([Environment]::UserName)"
 
@@ -76,7 +70,7 @@ $xml = "<?xml version='1.0' encoding='UTF-16'?>
 
 $xml > task.xml
 
-schtasks /Create /XML task.xml /RU $user /TN AutoHotKey
+schtasks /Create /XML task.xml /RU $user /TN AutoHotKey /F
 
 rm task.xml
 
