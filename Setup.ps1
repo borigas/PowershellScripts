@@ -3,21 +3,17 @@ $passwordSecure = Read-Host "Enter password: " -AsSecureString
 
 $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
     [Runtime.InteropServices.Marshal]::SecureStringToBSTR($passwordSecure))
+    
+InstallAutoHotKey($password)
 
 function InstallAutoHotKey($password) {
 
     $installLocation = GetUtilitiesDirectory
     $ahkDir = "$installLocation/AutoHotKey"
 
-    if(!(Test-Path -Path $ahkDir)){
-        New-Item -ItemType directory -Path $ahkDir
-    }
+    CreateIfNotExists($ahkDir)
 
     $ahkExePath = "$ahkDir/MyAutoHotKey.exe"
-
-    if(Test-Path -Path $ahkExePath){
-        $exists = $True
-    }
 
     $url = "https://github.com/borigas/Settings/blob/master/AutoHotKey/MyAutoHotKey.exe?raw=true"
 
@@ -37,10 +33,15 @@ function GetUtilitiesDirectory {
     $userDir = [Environment]::GetFolderPath("UserProfile")
     $installLocation = "$userDir/Utilities"
 
-    if(!(Test-Path -Path $installLocation)){
-        New-Item -ItemType directory -Path $installLocation
-    }
+    CreateIfNotExists($installLocation)
+    
     return $installLocation
+}
+
+function CreateIfNotExists($path){
+    if(!(Test-Path -Path $path)){
+        New-Item -ItemType directory -Path $path
+    }
 }
 
 function CreateAutoStartAtLoginTask($password, $command){
