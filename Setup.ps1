@@ -4,7 +4,28 @@ $passwordSecure = Read-Host "Enter password: " -AsSecureString
 $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
     [Runtime.InteropServices.Marshal]::SecureStringToBSTR($passwordSecure))
     
+iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+
+choco install googlechrome -y
+choco install chrashplan -y
+choco install virtualbox -y
+    
 InstallAutoHotKey($password)
+
+InstallKeyboard
+
+function InstallKeyboard {
+
+    $url = "https://github.com/borigas/Settings/raw/master/CustomDvorak/MyDvorak_amd64.msi"
+
+    Invoke-WebRequest -Uri $url -OutFile Keyboard.msi
+    
+    . Keyboard.msi /passive
+
+    rm Keyboard.msi
+
+    Write-Output "Installed Custom Keyboard"
+}
 
 function InstallAutoHotKey($password) {
 
