@@ -17,7 +17,7 @@ $filter = $replace + "*"
 $appDataFolder = "$dest/AppData"
 
 if(!(Test-Path -Path $appDataFolder)){
-    Write-Output "You must copy data 1st. Run:"
+    Write-Output "You must copy data 1st. Run as a different user:"
     Write-Output "robocopy $replace $dest /mir /xj /copyall"
     Exit 1
 }
