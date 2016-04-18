@@ -5,8 +5,22 @@ $dest = "D:"
 
 $replace = $env:UserProfile
 
+<#
+# For reversing the changess
+$temp = $dest
+$dest = $replace
+$replace = $temp
+#>
+
 $filter = $replace + "*"
 
+$appDataFolder = "$dest/AppData"
+
+if(!(Test-Path -Path $appDataFolder)){
+    Write-Output "You must copy data 1st. Run:"
+    Write-Output "robocopy $replace $dest /mir /xj /copyall"
+    Exit 1
+}
 
 Set-Location 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
 
