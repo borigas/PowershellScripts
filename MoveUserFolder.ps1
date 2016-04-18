@@ -31,5 +31,14 @@ ForEach-Object {
 Format-Table -AutoSize
 
 
+
+$objUser = New-Object System.Security.Principal.NTAccount([Environment]::UserName)
+$strSID = $objUser.Translate([System.Security.Principal.SecurityIdentifier])
+
+$profileRegKey = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\$strSID"
+Set-Location $profileRegKey
+
+Set-ItemProperty -Path . -Name "ProfileImagePath" -Value $dest
+
 # Restore the original location
 Pop-Location
