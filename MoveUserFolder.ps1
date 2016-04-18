@@ -16,9 +16,10 @@ $filter = $replace + "*"
 
 $appDataFolder = "$dest/AppData"
 
-if(!(Test-Path -Path $appDataFolder)){
+if(!(Test-Path -Path $appDataFolder)) {
     Write-Output "You must copy data 1st. Run as a different user:"
     Write-Output "robocopy $replace $dest /mir /xj /copyall"
+    Write-Output "mklink $replace $dest /J"
     Exit 1
 }
 
@@ -50,9 +51,8 @@ $objUser = New-Object System.Security.Principal.NTAccount([Environment]::UserNam
 $strSID = $objUser.Translate([System.Security.Principal.SecurityIdentifier])
 
 $profileRegKey = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\$strSID"
-Set-Location $profileRegKey
 
-Set-ItemProperty -Path . -Name "ProfileImagePath" -Value $dest
+Set-ItemProperty -Path $profileRegKey -Name "ProfileImagePath" -Value $dest
 
 # Restore the original location
 Pop-Location
