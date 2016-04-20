@@ -1,62 +1,40 @@
 
-$passwordSecure = Read-Host "Enter password: " -AsSecureString
-
-$password = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
-    [Runtime.InteropServices.Marshal]::SecureStringToBSTR($passwordSecure))
-    
-iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
-
-choco install googlechrome -y
-choco install chrashplan -y
-choco install virtualbox -y
-    
-InstallAutoHotKey($password)
-
-InstallKeyboard
-
 function InstallKeyboard {
-
-    $url = "https://github.com/borigas/Settings/raw/master/CustomDvorak/MyDvorak_amd64.msi"
-
-    Invoke-WebRequest -Uri $url -OutFile Keyboard.msi
     
-    . Keyboard.msi /passive
-
-    rm Keyboard.msi
+    ./CustomDvorak/setup.exe
 
     Write-Output "Installed Custom Keyboard"
 }
 
 function InstallAutoHotKey($password) {
 
-    $installLocation = GetUtilitiesDirectory
-    $ahkDir = "$installLocation/AutoHotKey"
+    $ahkDir = "$(Get-Location)\AutoHotKey"
 
-    CreateIfNotExists($ahkDir)
+    $ahkExePath = "$ahkDir\MyAutoHotKey.exe"
 
-    $ahkExePath = "$ahkDir/MyAutoHotKey.exe"
+    $taskName = "AutoHotKey"
 
-    $url = "https://github.com/borigas/Settings/blob/master/AutoHotKey/MyAutoHotKey.exe?raw=true"
-
-    Invoke-WebRequest -Uri $url -OutFile $ahkExePath
-
-    CreateAutoStartAtLoginTask($password, $ahkExePath)
+    CreateAutoStartAtLoginTask $password $ahkExePath $taskName
 
     Write-Output "Installed AutoHotKey"
+}
+
+function InstallWinSplit($password) {
+
+    $ahkDir = "$(Get-Location)\AutoHotKey"
+
+    $ahkExePath = "$(Get-Location)\WinSplitRevolution\WinSplit.exe"
+
+    $taskName = "WinSplit Revolution"
+
+    CreateAutoStartAtLoginTask $password $ahkExePath $taskName
+
+    Write-Output "Installed Win Split Revolution"
 }
 
 function GetFullUserName {
     $user = "$([Environment]::UserDomainName)\$([Environment]::UserName)"
     return $user
-}
-
-function GetUtilitiesDirectory {
-    $userDir = [Environment]::GetFolderPath("UserProfile")
-    $installLocation = "$userDir/Utilities"
-
-    CreateIfNotExists($installLocation)
-    
-    return $installLocation
 }
 
 function CreateIfNotExists($path){
@@ -65,9 +43,12 @@ function CreateIfNotExists($path){
     }
 }
 
-function CreateAutoStartAtLoginTask($password, $command){
+function CreateAutoStartAtLoginTask($password, $command, $taskNamd){
 
     $user = GetFullUserName
+
+    $objUser = New-Object System.Security.Principal.NTAccount([Environment]::UserName)
+    $strSID = $objUser.Translate([System.Security.Principal.SecurityIdentifier])
 
     $xml = "<?xml version='1.0' encoding='UTF-16'?>
     <Task version='1.2' xmlns='http://schemas.microsoft.com/windows/2004/02/mit/task'>
@@ -83,7 +64,7 @@ function CreateAutoStartAtLoginTask($password, $command){
       </Triggers>
       <Principals>
         <Principal id='Author'>
-          <UserId>$user</UserId>
+          <UserId>$strSID</UserId>
           <LogonType>InteractiveToken</LogonType>
           <RunLevel>HighestAvailable</RunLevel>
         </Principal>
@@ -116,7 +97,29 @@ function CreateAutoStartAtLoginTask($password, $command){
 
     $xml > task.xml
 
-    schtasks /Create /XML task.xml /RU $user /RP $password /TN AutoHotKey /F
+    schtasks /Create /XML "task.xml" /IT /RU $user /RP $password /TN $taskName /F
 
     rm task.xml
 }
+
+iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+
+choco install googlechrome -y
+choco install virtualbox -y
+choco install sublimetext3 -y
+choco install git -y
+
+cd ~
+git clone https://github.com/borigas/Settings
+
+cd Settings
+
+InstallKeyboard
+
+$passwordSecure = Read-Host "Enter password: " -AsSecureString
+
+$password = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
+    [Runtime.InteropServices.Marshal]::SecureStringToBSTR($passwordSecure))
+
+InstallAutoHotKey($password)
+InstallWinSplit($password)
