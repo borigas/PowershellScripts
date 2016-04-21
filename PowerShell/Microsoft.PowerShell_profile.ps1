@@ -13,21 +13,15 @@ function Get-Batchfile ($file) {
 ###### Function Used to Load VS Command Prompt #####
 function VsVars32()
 {
-	#$version = "9.0"
-	#$version = "10.0"
-	#$key = "HKLM:SOFTWARE\Microsoft\VisualStudio\" + $version
-	#$key = "HKLM:SOFTWARE\Wow6432Node\Microsoft\VisualStudio\" + $version
-	#$VsKey = Get-ItemProperty $key
-	#$VsInstallPath = [System.IO.Path]::GetDirectoryName($VsKey.InstallDir)
-	#$VsToolsDir = [System.IO.Path]::GetDirectoryName($VsInstallPath)
-	#$VsToolsDir = [System.IO.Path]::Combine($VsToolsDir, "Tools")
-	
-	#$version = "11.0"
-	$version = "12.0"
-	$vsComntools = (Get-ChildItem env:VS120COMNTOOLS).Value    
-	$batchFile = [System.IO.Path]::Combine($vsComntools, "vsvars32.bat")
-	Get-Batchfile $batchFile
-	[System.Console]::Title = "Powershell w/ Visual Studio " + $version
+	if(Test-Path env:VS120COMNTOOLS){
+		$vsComntools = (Get-ChildItem env:VS120COMNTOOLS).Value
+		if(Test-Path $vsComntools){
+			$version = "12.0"
+			$batchFile = [System.IO.Path]::Combine($vsComntools, "vsvars32.bat")
+			Get-Batchfile $batchFile
+			[System.Console]::Title = "Powershell w/ Visual Studio " + $version
+		}
+	}
 }
 
 ###### Function Used to Set Background to Light Blue If not Admin ######
