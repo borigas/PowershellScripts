@@ -2,6 +2,9 @@
 
 #### Functions Used to Load VS Command Prompt #####
 
+# Change home to end with a "\". Allows cd ~ when ~ was D:. Otherwise, it acts as a drive change, not a dir change
+(get-psprovider filesystem).Home = (get-psprovider filesystem).Home + "\"
+
 function Get-Batchfile ($file) {
 	$cmd = "`"$file`" & set"
 	cmd /c $cmd | Foreach-Object {
