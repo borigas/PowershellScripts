@@ -107,8 +107,7 @@ iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.p
 choco install googlechrome -y
 choco install virtualbox -y
 choco install notepadplusplus -y
-choco install git -y
-choco install poshgit -y
+choco install github -y
 
 cd ~
 git clone https://github.com/borigas/Settings
