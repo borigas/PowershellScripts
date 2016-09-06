@@ -73,9 +73,9 @@ set-alias profileDir Get-ProfileDirectory
 . (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
 . $env:github_posh_git\profile.example.ps1
 
-$global:GitPromptSettings.WorkingForegroundColor    = [ConsoleColor]::Red 
-$global:GitPromptSettings.UntrackedForegroundColor  = [ConsoleColor]::Red
-$global:GitPromptSettings.IndexForegroundColor  = [ConsoleColor]::Green
+#$global:GitPromptSettings.WorkingForegroundColor    = [ConsoleColor]::Red 
+#$global:GitPromptSettings.UntrackedForegroundColor  = [ConsoleColor]::Red
+#$global:GitPromptSettings.IndexForegroundColor  = [ConsoleColor]::Green
 
 if(!$IsAdmin){
     Start-SshAgent
