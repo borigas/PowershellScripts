@@ -1,5 +1,7 @@
 /// Custom functions
 
+rs.slaveOk();
+
 masterVideoImportantProperties = 
 {
     PatientNumber : 1, 
@@ -7,13 +9,78 @@ masterVideoImportantProperties =
     StartTime : 1, 
     EndTime : 1, 
     FrameCount : 1, 
-    StartFrame : 1, 
-    EndFrame : 1, 
+    VideoStartFrame : 1, 
+    VideoEndFrame : 1, 
     StartPatientFrame : 1, 
     EndPatientFrame : 1, 
     IsDeleted : 1,
     IsClipped : 1
 };
+
+isReplicaSetCurrent = function(maxAgeMs){
+    if(maxAgeMs === undefined){
+        maxAgeMs = 1;
+    }
+	var status = rs.status();
+    var primary = null;
+    var secondary = null;
+	for(var i = 0; i < status.members.length; i++){
+		if(status.members[i].stateStr == "SECONDARY"){
+            secondary = status.members[i];
+        }else if(status.members[i].stateStr == "PRIMARY"){
+            primary = status.members[i];
+        }
+	}
+    
+    var diff = -1;
+    
+    if(primary && secondary){
+        diff = primary.optimeDate - secondary.optimeDate;
+        print(primary.optimeDate);
+        print(secondary.optimeDate)
+        print({Diff : diff});
+    }
+    
+    return diff <= maxAgeMs && diff >= 0;
+}
+
+findSecondaryOptimeDiff = function(){
+    var status = rs.status()
+    var primary, secondary;
+    status.members.forEach(function(member){
+        if(member.stateStr == "PRIMARY"){
+            primary = member;
+        }else if(member.stateStr == "SECONDARY"){
+            secondary = member;
+        }
+    });
+
+    if(primary && secondary){
+        var diff = primary.optimeDate - secondary.optimeDate;
+        print(primary.optimeDate);
+        print(secondary.optimeDate)
+        print({Diff : diff});
+    }else{
+        print("Members not found")
+    }
+}
+
+stepDownIfCurrent = function(maxAgeMs){
+    if(isReplicaSetCurrent(maxAgeMs)){
+        print({Status : "Stepping Down"});
+        rs.stepDown();
+    }else{
+        print({Status : "Not current. Staying as primary"});
+    }
+}
+
+function cloneCollectionTo(dbName, collectionName){    
+    var otherDb = db.getSiblingDB(dbName);
+    var otherCollection = otherDb[collectionName];
+    db[collectionName].find().forEach(function(doc){
+        otherCollection.insert(doc)
+    });
+}
 
 ViewLongOps = function(minLength){
     if(minLength === undefined){
@@ -95,7 +162,7 @@ DBQuery.prototype.printLimitedImpl = function(limit, includeCreateDate){
 }
 DBQuery.prototype.printLimited = function(limit){
     var query = this;
-    return query.printLimitedImpl(0, false);
+    return query.printLimitedImpl(limit, false);
 }
 DBQuery.prototype.print = function(){
     var query = this;
