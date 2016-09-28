@@ -1,6 +1,6 @@
 # Located in %USERPROFILE%\.gitconfig
 # Can be located elsewhere by using a symlink
-# cmd /c mklink %USERPROFILE\.gitconfig (absolutePath)\.gitconfig
+# cmd /c mklink %USERPROFILE%\.gitconfig (absolutePath)\.gitconfig
 
 [user]
 	name = Ben Origas
@@ -20,6 +20,7 @@
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
     bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+    rm-deleted = "!git rm $(git ls-files --deleted)"
 [color "status"]
   added = green
   changed = yellow bold
