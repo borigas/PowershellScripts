@@ -82,7 +82,9 @@ if(!$IsAdmin){
 }
 
 function gitstatus { git status }
-set-alias gs gitstatus
+set-alias gsl gitstatus
+function gitstatusshort { git status -s }
+set-alias gs gitstatusshort
 function gitpull { git pull }
 set-alias pu gitpull
 function stash-pull{

@@ -20,7 +20,30 @@
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
     bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
+    
     rm-deleted = "!git rm $(git ls-files --deleted)"
+    
+    # https://hackernoon.com/lesser-known-git-commands-151a1918a60#.eew71l3ps
+    please = push --force-with-lease
+    commend = commit --amend --no-edit
+    shorty = status --short --branch
+    
+    # http://stackoverflow.com/a/9074343/1130636
+    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    
+    # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+    # Search for files in repo
+    f = "!git ls-files | grep -i"
+    # Log of changes to a file
+    filelog = log -u
+    
+    # Assume
+    assume = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+    unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+    assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+    
 [color "status"]
   added = green
   changed = yellow bold
