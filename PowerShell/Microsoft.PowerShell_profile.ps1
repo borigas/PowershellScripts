@@ -83,7 +83,7 @@ if(!$IsAdmin){
 
 function gitstatus { git status }
 set-alias gsl gitstatus
-function gitstatusshort { git status -s }
+function gitstatusshort { git shorty }
 set-alias gs gitstatusshort
 function gitpull { git pull }
 set-alias pu gitpull
