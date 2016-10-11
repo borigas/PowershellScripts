@@ -12,7 +12,10 @@
 	outgoing = !git log origin..
     pub = !git rev-parse --abbrev-ref HEAD | xargs -r git push --set-upstream origin 
     co = checkout
+    l1 = !git lg -1
+    d1 = diff HEAD^
     
+    # http://haacked.com/archive/2014/07/28/github-flow-aliases/
     up = !git pull --rebase --prune
     cm = !git add -A && git commit -m
     save = !git add -A && git commit -m 'SAVEPOINT'
@@ -38,6 +41,7 @@
     filelog = log -u
     
     # Assume
+    # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
     assume = update-index --assume-unchanged
     unassume = update-index --no-assume-unchanged
     assumed = "!git ls-files -v | grep ^h | cut -c 3-"
