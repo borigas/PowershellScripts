@@ -16,7 +16,16 @@ function Get-Batchfile ($file) {
 ###### Function Used to Load VS Command Prompt #####
 function VsVars32()
 {
-	if(Test-Path env:VS120COMNTOOLS){
+	if(Test-Path env:VS140COMNTOOLS){
+		$vsComntools = (Get-ChildItem env:VS140COMNTOOLS).Value
+		if(Test-Path $vsComntools){
+			$version = "14.0"
+			$batchFile = [System.IO.Path]::Combine($vsComntools, "vsvars32.bat")
+			Get-Batchfile $batchFile
+			[System.Console]::Title = "Powershell w/ Visual Studio " + $version
+		}
+	}
+	elseif(Test-Path env:VS120COMNTOOLS){
 		$vsComntools = (Get-ChildItem env:VS120COMNTOOLS).Value
 		if(Test-Path $vsComntools){
 			$version = "12.0"
