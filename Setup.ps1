@@ -21,8 +21,6 @@ function InstallAutoHotKey($password) {
 
 function InstallWinSplit($password) {
 
-    $ahkDir = "$(Get-Location)\AutoHotKey"
-
     $ahkExePath = "$(Get-Location)\WinSplitRevolution\WinSplit.exe"
 
     $taskName = "WinSplit Revolution"
@@ -105,7 +103,7 @@ function CreateAutoStartAtLoginTask($password, $command, $taskNamd){
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install googlechrome -y
-choco install virtualbox -y
+#choco install virtualbox -y
 choco install notepadplusplus -y
 choco install github -y
 
