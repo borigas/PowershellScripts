@@ -65,7 +65,12 @@ VsVars32
 $IsAdmin = AmIAdmin
 
 ###### Set Aliases ######
-set-alias notepad "C:\Program Files (x86)\Notepad++\notepad++.exe"
+$notepadPlusPlusPathOptions = @("C:\Program Files\Notepad++\notepad++.exe", "C:\Program Files (x86)\Notepad++\notepad++.exe")
+foreach ($possibleNppPath in $notepadPlusPlusPathOptions){
+	if (Test-Path $possibleNppPath){
+		set-alias notepad $possibleNppPath
+	}
+}
 
 $hosts = $env:SystemRoot + "\system32\drivers\etc\hosts"
 function edit-hostfile { 
