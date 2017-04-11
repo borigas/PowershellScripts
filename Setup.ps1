@@ -103,9 +103,10 @@ function CreateAutoStartAtLoginTask($password, $command, $taskNamd){
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install googlechrome -y
-#choco install virtualbox -y
+choco install virtualbox -y
 choco install notepadplusplus -y
 choco install github -y
+choco install spotify -y
 
 cd ~
 git clone https://github.com/borigas/Settings
