@@ -71,6 +71,7 @@ foreach ($possibleNppPath in $notepadPlusPlusPathOptions){
 		set-alias notepad $possibleNppPath
 	}
 }
+set-alias vscode "C:\Program Files (x86)\Microsoft VS Code\Code.exe"
 
 $hosts = $env:SystemRoot + "\system32\drivers\etc\hosts"
 function edit-hostfile { 
