@@ -8,8 +8,9 @@
 [push]
 	default = simple
 [alias]
-	incoming = !git fetch && git log ..origin
-	outgoing = !git log origin..
+    incoming = !git fetch && git lg ..origin
+    outgoing = !git lg origin..
+    out = !git outgoing
     pub = !git rev-parse --abbrev-ref HEAD | xargs -r git push --set-upstream origin 
     co = checkout
     l1 = !git lg -1
