@@ -96,6 +96,7 @@ if(!$IsAdmin){
     Start-SshAgent
 }
 
+set-alias g git
 function gitstatus { git status }
 set-alias gsl gitstatus
 function gitstatusshort { git shorty }
