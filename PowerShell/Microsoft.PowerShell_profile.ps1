@@ -84,10 +84,6 @@ function Get-ProfileDirectory {
 }
 set-alias profileDir Get-ProfileDirectory
 
-#Setup git and PoshGit
-. (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
-. $env:github_posh_git\profile.example.ps1
-
 #$global:GitPromptSettings.WorkingForegroundColor    = [ConsoleColor]::Red 
 #$global:GitPromptSettings.UntrackedForegroundColor  = [ConsoleColor]::Red
 #$global:GitPromptSettings.IndexForegroundColor  = [ConsoleColor]::Green
