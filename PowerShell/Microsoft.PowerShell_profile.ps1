@@ -115,6 +115,8 @@ function mongo {
     . "C:\MongoDb\bin\mongo.exe" --shell --host HV-Mongo01
 }
 
+Import-Module posh-git
+
 #Install Jump Location
 Import-Module "$(Get-ProfileDirectory)\Modules\Jump-Location-0.6.0\Jump.Location.psd1"
 
