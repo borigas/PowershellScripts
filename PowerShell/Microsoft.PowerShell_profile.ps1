@@ -123,19 +123,23 @@ Import-Module "$(Get-ProfileDirectory)\Modules\Jump-Location-0.6.0\Jump.Location
 #Install PsReadline
 Import-Module PSReadLine
 
-#Go to CV dir
-$cvDir = "C:\workspaces\ComputerVision"
-$workDir = "C:\workspaces"
-$otherWorkDir = "D:\workspaces"
-If(Test-Path $cvDir){
-	cd $cvDir
+$isDefaultLocation = (Get-Location).Path -eq "C:\Windows\System32"
+if($isDefaultLocation){
+    #Go to CV dir
+    $cvDir = "C:\workspaces\ComputerVision"
+    $workDir = "C:\workspaces"
+    $otherWorkDir = "D:\workspaces"
+    If(Test-Path $cvDir){
+        cd $cvDir
+    }
+    ElseIf(Test-Path $workDir){
+        cd $workDir
+    }
+    ElseIf(Test-Path $otherWorkDir){
+        cd $otherWorkDir
+    }
 }
-ElseIf(Test-Path $workDir){
-	cd $workDir
-}
-ElseIf(Test-Path $otherWorkDir){
-	cd $otherWorkDir
-}
+
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
