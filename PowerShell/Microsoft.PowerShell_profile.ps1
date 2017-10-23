@@ -84,6 +84,10 @@ function Get-ProfileDirectory {
 }
 set-alias profileDir Get-ProfileDirectory
 
+. (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
+Start-SshAgent
+ssh-add ~/.ssh/github_rsa
+
 #$global:GitPromptSettings.WorkingForegroundColor    = [ConsoleColor]::Red 
 #$global:GitPromptSettings.UntrackedForegroundColor  = [ConsoleColor]::Red
 #$global:GitPromptSettings.IndexForegroundColor  = [ConsoleColor]::Green
@@ -112,8 +116,6 @@ function mongo {
 }
 
 Import-Module posh-git
-Start-SshAgent
-ssh-add ~/.ssh/github_rsa
 
 #Install Jump Location
 Import-Module "$(Get-ProfileDirectory)\Modules\Jump-Location-0.6.0\Jump.Location.psd1"
