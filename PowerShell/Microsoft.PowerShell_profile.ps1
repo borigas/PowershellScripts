@@ -117,11 +117,10 @@ function mongo {
 
 Import-Module posh-git
 
-#Install Jump Location
-Import-Module "$(Get-ProfileDirectory)\Modules\Jump-Location-0.6.0\Jump.Location.psd1"
-
 #Install PsReadline
 Import-Module PSReadLine
+
+Import-Module z
 
 $isDefaultLocation = (Get-Location).Path -eq "C:\Windows\System32"
 if($isDefaultLocation){
@@ -145,3 +144,4 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
+
