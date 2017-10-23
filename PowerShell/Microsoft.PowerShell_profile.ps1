@@ -88,10 +88,6 @@ set-alias profileDir Get-ProfileDirectory
 #$global:GitPromptSettings.UntrackedForegroundColor  = [ConsoleColor]::Red
 #$global:GitPromptSettings.IndexForegroundColor  = [ConsoleColor]::Green
 
-if(!$IsAdmin){
-    Start-SshAgent
-}
-
 set-alias g git
 function gitstatus { git status }
 set-alias gsl gitstatus
@@ -116,6 +112,8 @@ function mongo {
 }
 
 Import-Module posh-git
+Start-SshAgent
+ssh-add ~/.ssh/github_rsa
 
 #Install Jump Location
 Import-Module "$(Get-ProfileDirectory)\Modules\Jump-Location-0.6.0\Jump.Location.psd1"
