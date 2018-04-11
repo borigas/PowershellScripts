@@ -144,3 +144,11 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
+function RemotePs($computerName, $userName) {
+	$session = NewPsSession $computerName $userName
+	Enter-PSSession $session
+}
+function NewPsSession($computerName, $userName) {
+	$session = New-PSSession -UseSSL -Credential $userName -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck) -ComputerName $computerName
+	return $session
+}
