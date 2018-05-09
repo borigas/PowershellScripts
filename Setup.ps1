@@ -100,6 +100,11 @@ function CreateAutoStartAtLoginTask($password, $command, $taskNamd){
     rm task.xml
 }
 
+function InstallVboxVmService(){
+  choco install vboxvmservice -y
+  cp "VBoxVmService\VBoxVmService.ini" "$env:ProgramFiles\VBoxVmService\VBoxVmService.ini"
+}
+
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install googlechrome -y
@@ -123,3 +128,5 @@ $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
 
 InstallAutoHotKey($password)
 InstallWinSplit($password)
+
+InstallVboxVmService()
