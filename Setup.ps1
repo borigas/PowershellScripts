@@ -105,14 +105,22 @@ function InstallVboxVmService(){
   cp "VBoxVmService\VBoxVmService.ini" "$env:ProgramFiles\VBoxVmService\VBoxVmService.ini"
 }
 
+function InstallGit(){
+  choco install git -y
+  & Git\Setup.ps1
+}
+
+& PowerShell\Setup.ps1
+
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install googlechrome -y
 choco install virtualbox -y
 #choco install notepadplusplus -y
 choco install visualstudiocode -y
-choco install git -y
 choco install spotify -y
+
+InstallGit
 
 cd ~
 git clone https://github.com/borigas/Settings
