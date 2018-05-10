@@ -101,7 +101,7 @@ function CreateAutoStartAtLoginTask($password, $command, $taskNamd){
 }
 
 function InstallVboxVmService(){
-  choco install vboxvmservice -y
+  choco install vboxvmservice -y -ia '/DIR=""C:\Program Files\VBoxVmService""'
   cp "VBoxVmService\VBoxVmService.ini" "$env:ProgramFiles\VBoxVmService\VBoxVmService.ini"
 }
 
@@ -129,4 +129,4 @@ $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
 InstallAutoHotKey($password)
 InstallWinSplit($password)
 
-InstallVboxVmService()
+InstallVboxVmService
