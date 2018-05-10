@@ -122,10 +122,12 @@ choco install spotify -y
 
 InstallGit
 
-cd ~
-git clone https://github.com/borigas/Settings
+if((Get-Item .).Name -ne "Settings"){
+  cd ~
+  git clone https://github.com/borigas/Settings
 
-cd Settings
+  cd Settings
+}
 
 InstallKeyboard
 
