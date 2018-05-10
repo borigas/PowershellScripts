@@ -122,6 +122,8 @@ choco install spotify -y
 
 InstallGit
 
+InstallVboxVmService
+
 if((Get-Item .).Name -ne "Settings"){
   cd ~
   git clone https://github.com/borigas/Settings
@@ -138,5 +140,3 @@ $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
 
 InstallAutoHotKey($password)
 InstallWinSplit($password)
-
-InstallVboxVmService
