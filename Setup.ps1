@@ -111,7 +111,7 @@ choco install googlechrome -y
 choco install virtualbox -y
 #choco install notepadplusplus -y
 choco install visualstudiocode -y
-choco install github -y
+choco install git -y
 choco install spotify -y
 
 cd ~
