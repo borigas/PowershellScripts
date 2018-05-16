@@ -83,7 +83,6 @@ function Get-ProfileDirectory {
 }
 set-alias profileDir Get-ProfileDirectory
 
-. (Resolve-Path "$env:LOCALAPPDATA\GitHub\shell.ps1")
 Start-SshAgent
 ssh-add ~/.ssh/github_rsa
 
