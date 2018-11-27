@@ -15,6 +15,7 @@
     co = checkout
     l1 = !git lg -1
     d1 = diff HEAD^
+    dc = diff --cached
     
     # http://haacked.com/archive/2014/07/28/github-flow-aliases/
     up = !git pull --rebase --prune
