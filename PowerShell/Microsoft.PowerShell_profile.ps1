@@ -95,6 +95,8 @@ function gitstatus { git status }
 set-alias gsl gitstatus
 function gitstatusshort { git shorty }
 set-alias gs gitstatusshort
+function gitdiff { git diff }
+set-alias gd gitdiff
 function gitpull { git pull }
 set-alias pu gitpull
 function stash-pull{
