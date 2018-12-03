@@ -114,9 +114,6 @@ function mongo {
 
 Import-Module posh-git
 
-#Install PsReadline
-Import-Module PSReadLine
-
 Import-Module z
 
 $isDefaultLocation = (Get-Location).Path -eq "C:\Windows\System32"
