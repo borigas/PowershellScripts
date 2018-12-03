@@ -83,9 +83,6 @@ function Get-ProfileDirectory {
 }
 set-alias profileDir Get-ProfileDirectory
 
-Start-SshAgent
-ssh-add ~/.ssh/github_rsa
-
 #$global:GitPromptSettings.WorkingForegroundColor    = [ConsoleColor]::Red 
 #$global:GitPromptSettings.UntrackedForegroundColor  = [ConsoleColor]::Red
 #$global:GitPromptSettings.IndexForegroundColor  = [ConsoleColor]::Green
