@@ -119,18 +119,15 @@ Import-Module z
 $isDefaultLocation = (Get-Location).Path -eq "C:\Windows\System32"
 if($isDefaultLocation){
     #Go to CV dir
-    $cvDir = "C:\workspaces\ComputerVision"
-    $workDir = "C:\workspaces"
-    $otherWorkDir = "D:\workspaces"
-    If(Test-Path $cvDir){
-        cd $cvDir
-    }
-    ElseIf(Test-Path $workDir){
-        cd $workDir
-    }
-    ElseIf(Test-Path $otherWorkDir){
-        cd $otherWorkDir
-    }
+	$pathPriorities = @("C:\workspaces\ComputerVision", "D:\workspaces\ComputerVision", "C:\workspaces", "D:\workspaces")
+	foreach($path in $pathPriorities)
+	{
+		if(Test-Path $path)
+		{
+			cd $path
+			break
+		}
+	}
 }
 
 # Chocolatey profile
