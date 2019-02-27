@@ -113,6 +113,7 @@ function mongo {
 }
 
 Import-Module posh-git
+Import-Module DockerCompletion
 
 Import-Module z
 
