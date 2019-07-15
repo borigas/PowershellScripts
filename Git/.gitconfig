@@ -14,6 +14,7 @@
     pub = !git rev-parse --abbrev-ref HEAD | xargs -r git push --set-upstream origin 
     co = checkout
     l1 = !git lg -1
+    d = diff
     d0 = diff HEAD
     d1 = diff HEAD^
     dc = diff --cached
@@ -32,6 +33,7 @@
     bclean = clean -fXd */bin/ */Bin/ */obj/ */TestResults/* *.js *.js.map *.css
     fresh = clean -fXd
     rma = "!git rm $(git ls-files --deleted)"
+    addnew = "!git add $(git ls-files -o --exclude-standard)"
     
     
     rm-deleted = "!git rm $(git ls-files --deleted)"
@@ -68,14 +70,14 @@
 [core]
 	editor = code --wait -n
   
-[merge]
-    tool = vscode
-[mergetool "vscode"]
-    cmd = code --wait $MERGED
-[diff]
-    tool = vscode
-[difftool "vscode"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+# [merge]
+#     tool = vscode
+# [mergetool "vscode"]
+#     cmd = code --wait $MERGED
+# [diff]
+#     tool = vscode
+# [difftool "vscode"]
+#     cmd = code --wait --diff $LOCAL $REMOTE
 
 [push]
 	default = simple
