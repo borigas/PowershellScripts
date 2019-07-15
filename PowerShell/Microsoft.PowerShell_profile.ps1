@@ -120,7 +120,7 @@ Import-Module z
 $isDefaultLocation = (Get-Location).Path -eq "C:\Windows\System32"
 if($isDefaultLocation){
     #Go to CV dir
-	$pathPriorities = @("C:\workspaces\ComputerVision", "D:\workspaces\ComputerVision", "C:\workspaces", "D:\workspaces")
+	$pathPriorities = @("C:\workspaces\ComputerVision\DontPanic.CV.Tracking", "D:\workspaces\ComputerVision\DontPanic.CV.Tracking", "C:\workspaces", "D:\workspaces")
 	foreach($path in $pathPriorities)
 	{
 		if(Test-Path $path)
