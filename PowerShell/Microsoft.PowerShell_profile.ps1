@@ -128,9 +128,12 @@ foreach($path in $pathPriorities)
 			cd $path
 		}
 		if($path.EndsWith("DontPanic.CV.Tracking")){
-			$scriptDir = $path + "\Scripts"
-			if(Test-Path $scriptDir){
-				$env:Path += ";$scriptDir"
+			$moduleDir = $path + "\Scripts\OcuveraModules"
+			if(Test-Path $moduleDir){
+				$modulePaths = Get-ChildItem $moduleDir | Select -ExpandProperty FullName
+				foreach($modulePath in $modulePaths){
+					Import-Module $modulePath
+				}
 			}
 		}
 		break
@@ -141,13 +144,4 @@ foreach($path in $pathPriorities)
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
-}
-
-function RemotePs($computerName, $userName) {
-	$session = NewPsSession $computerName $userName
-	Enter-PSSession $session
-}
-function NewPsSession($computerName, $userName) {
-	$session = New-PSSession -UseSSL -Credential $userName -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck) -ComputerName $computerName
-	return $session
 }
