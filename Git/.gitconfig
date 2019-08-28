@@ -34,6 +34,7 @@
     fresh = clean -fXd
     rma = "!git rm $(git ls-files --deleted)"
     addnew = "!git add $(git ls-files -o --exclude-standard)"
+    saveup = "!f() { git fetch && git save && git rebase ${1-origin/master} && git reset HEAD^; }; f"
     
     
     rm-deleted = "!git rm $(git ls-files --deleted)"
