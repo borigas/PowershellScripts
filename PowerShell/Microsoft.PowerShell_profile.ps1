@@ -118,16 +118,22 @@ Import-Module DockerCompletion
 Import-Module z
 
 $isDefaultLocation = (Get-Location).Path -eq "C:\Windows\System32"
-if($isDefaultLocation){
-    #Go to CV dir
-	$pathPriorities = @("C:\workspaces\ComputerVision\DontPanic.CV.Tracking", "D:\workspaces\ComputerVision\DontPanic.CV.Tracking", "C:\workspaces", "D:\workspaces")
-	foreach($path in $pathPriorities)
+$pathPriorities = @("C:\workspaces\ComputerVision\DontPanic.CV.Tracking", "D:\workspaces\ComputerVision\DontPanic.CV.Tracking", "C:\workspaces", "D:\workspaces")
+foreach($path in $pathPriorities)
+{
+	if(Test-Path $path)
 	{
-		if(Test-Path $path)
+		if($isDefaultLocation)
 		{
 			cd $path
-			break
 		}
+		if($path.EndsWith("DontPanic.CV.Tracking")){
+			$scriptDir = $path + "\Scripts"
+			if(Test-Path $scriptDir){
+				$env:Path += ";$scriptDir"
+			}
+		}
+		break
 	}
 }
 
