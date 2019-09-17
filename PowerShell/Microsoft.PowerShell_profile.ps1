@@ -5,11 +5,28 @@
 # Change home to end with a "\". Allows cd ~ when ~ was D:. Otherwise, it acts as a drive change, not a dir change
 (get-psprovider filesystem).Home = (get-psprovider filesystem).Home + "\"
 
-function Get-Batchfile ($file) {
-	$cmd = "`"$file`" & set"
-	cmd /c $cmd | Foreach-Object {
-		$p, $v = $_.split('=')
-		Set-Item -path env:$p -value $v
+# https://github.com/nightroman/PowerShelf/blob/master/Invoke-Environment.ps1
+function Invoke-Environment
+{
+	param
+	(
+		[Parameter(Mandatory=1)][string]$Command,
+		[switch]$Output,
+		[switch]$Force
+	)
+
+	$stream = if ($Output) { ($temp = [IO.Path]::GetTempFileName()) } else { 'nul' }
+	$operator = if ($Force) {'&'} else {'&&'}
+
+	foreach($_ in cmd /c " $Command > `"$stream`" 2>&1 $operator SET") {
+		if ($_ -match '^([^=]+)=(.*)') {
+			[System.Environment]::SetEnvironmentVariable($matches[1], $matches[2])
+		}
+	}
+
+	if ($Output) {
+		Get-Content -LiteralPath $temp
+		Remove-Item -LiteralPath $temp
 	}
 }
 
@@ -21,7 +38,7 @@ function VsVars32()
 	if(Test-Path $vsWhere){
 		$vsLocation = & $vsWhere -latest -property installationPath
 		$vsDevCmd = "$vsLocation\Common7\Tools\VsDevCmd.bat"
-		Get-Batchfile $vsDevCmd
+		Invoke-Environment $vsDevCmd
 
 		$vsName = & $vsWhere -latest -property displayName
 		$vsVersion = & $vsWhere -latest -property catalog_productDisplayVersion
@@ -32,7 +49,7 @@ function VsVars32()
 		if(Test-Path $vsComntools){
 			$version = "14.0"
 			$batchFile = [System.IO.Path]::Combine($vsComntools, "vsvars32.bat")
-			Get-Batchfile $batchFile
+			Invoke-Environment $batchFile
 			$version = "Visual Studio " + $version
 		}
 	}
@@ -41,7 +58,7 @@ function VsVars32()
 		if(Test-Path $vsComntools){
 			$version = "12.0"
 			$batchFile = [System.IO.Path]::Combine($vsComntools, "vsvars32.bat")
-			Get-Batchfile $batchFile
+			Invoke-Environment $batchFile
 			$version = "Visual Studio " + $version
 		}
 	}
