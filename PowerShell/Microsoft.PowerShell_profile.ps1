@@ -56,31 +56,28 @@ function AmIAdmin()
 	$prp=new-object System.Security.Principal.WindowsPrincipal($wid)
 	$adm=[System.Security.Principal.WindowsBuiltInRole]::Administrator
 	$IsAdmin=$prp.IsInRole($adm)
-	$title = [System.Console]::Title
 	if (!$IsAdmin)
 	{ 
-		$title = $title + " (Non-Administrator)"
-		(Get-Host).UI.RawUI.Backgroundcolor="Black"
+		(Get-Host).UI.RawUI.Backgroundcolor="Blue"
 	}
 	else
 	{
-		$title = $title + " (Administrator)"
 		(Get-Host).UI.RawUI.Backgroundcolor="Black"
 	}
-	[System.Console]::Title = $title
     return $IsAdmin
 }
 
 ###### Run Functions on Startup ######
-VsVars32
+$vsVersion = VsVars32
 
-$IsAdmin = AmIAdmin
+$isAdmin = AmIAdmin
 
 ###### Set Aliases ######
-$notepadPlusPlusPathOptions = @("C:\Program Files\Notepad++\notepad++.exe", "C:\Program Files (x86)\Notepad++\notepad++.exe")
-foreach ($possibleNppPath in $notepadPlusPlusPathOptions){
-	if (Test-Path $possibleNppPath){
-		set-alias notepad $possibleNppPath
+$editorPathOptions = @("code", "C:\Program Files\Notepad++\notepad++.exe", "C:\Program Files (x86)\Notepad++\notepad++.exe")
+foreach ($possibleEditorPath in $editorPathOptions){
+	if (Get-Command $possibleEditorPath -ErrorAction SilentlyContinue){
+		set-alias notepad $possibleEditorPath
+		break
 	}
 }
 
@@ -94,10 +91,6 @@ function Get-ProfileDirectory {
 	$profileFile.DirectoryName
 }
 set-alias profileDir Get-ProfileDirectory
-
-#$global:GitPromptSettings.WorkingForegroundColor    = [ConsoleColor]::Red 
-#$global:GitPromptSettings.UntrackedForegroundColor  = [ConsoleColor]::Red
-#$global:GitPromptSettings.IndexForegroundColor  = [ConsoleColor]::Green
 
 set-alias g git
 function gitstatus { git status }
@@ -125,6 +118,9 @@ function mongo {
 }
 
 Import-Module posh-git
+# Don't overwrite window title
+#$GitPromptSettings.WindowTitle = $null
+$GitPromptSettings.WindowTitle = { param($GitStatus, [bool]$IsAdmin) "$(if ($IsAdmin) {'Admin: '})$(if ($GitStatus) {"$($GitStatus.RepoName) [$($GitStatus.Branch)]"} else {Get-PromptPath}) ~ PowerShell $($PSVersionTable.PSVersion) $([IntPtr]::Size * 8)-bit $vsVersion" }
 Import-Module DockerCompletion
 
 Import-Module z
