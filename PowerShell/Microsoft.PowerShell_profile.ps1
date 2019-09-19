@@ -137,7 +137,7 @@ function mongo {
 Import-Module posh-git
 # Don't overwrite window title
 #$GitPromptSettings.WindowTitle = $null
-$GitPromptSettings.WindowTitle = { param($GitStatus, [bool]$IsAdmin) "$(if ($IsAdmin) {'Admin: '})$(if ($GitStatus) {"$($GitStatus.RepoName) [$($GitStatus.Branch)]"} else {Get-PromptPath}) ~ PowerShell $($PSVersionTable.PSVersion) $([IntPtr]::Size * 8)-bit $vsVersion" }
+$GitPromptSettings.WindowTitle = { param($GitStatus, [bool]$IsAdmin) "$(if ($GitStatus) {"$($GitStatus.RepoName) [$($GitStatus.Branch)]"} else {Get-PromptPath}) ~ $(if ($vsVersion) {"$vsVersion ~ "})PowerShell $($PSVersionTable.PSVersion) $([IntPtr]::Size * 8)-bit $(if ($IsAdmin) {'Admin'})" }
 Import-Module DockerCompletion
 
 Import-Module z
