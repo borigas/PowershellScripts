@@ -68,6 +68,9 @@
   untracked = white magenta bold
   branch = yellow bold
 
+[color "diff"]
+  old = cyan
+
 [core]
 	editor = code --wait -n
   
