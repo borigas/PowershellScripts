@@ -73,14 +73,6 @@ function AmIAdmin()
 	$prp=new-object System.Security.Principal.WindowsPrincipal($wid)
 	$adm=[System.Security.Principal.WindowsBuiltInRole]::Administrator
 	$IsAdmin=$prp.IsInRole($adm)
-	if (!$IsAdmin)
-	{ 
-		(Get-Host).UI.RawUI.Backgroundcolor="Blue"
-	}
-	else
-	{
-		(Get-Host).UI.RawUI.Backgroundcolor="Black"
-	}
     return $IsAdmin
 }
 
