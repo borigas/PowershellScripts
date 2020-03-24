@@ -100,11 +100,6 @@ function CreateAutoStartAtLoginTask($password, $command, $taskNamd){
     rm task.xml
 }
 
-function InstallVboxVmService(){
-  choco install vboxvmservice -y -ia '/DIR=""C:\Program Files\VBoxVmService""'
-  cp "VBoxVmService\VBoxVmService.ini" "$env:ProgramFiles\VBoxVmService\VBoxVmService.ini"
-}
-
 function InstallGit(){
   choco install git -y
   & Git\Setup.ps1
@@ -115,14 +110,13 @@ function InstallGit(){
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install googlechrome -y
-choco install virtualbox -y
+choco install microsoft-windows-terminal -y
 #choco install notepadplusplus -y
 choco install visualstudiocode -y
 choco install spotify -y
+choco install authy-desktop -y
 
 InstallGit
-
-InstallVboxVmService
 
 if((Get-Item .).Name -ne "Settings"){
   cd ~
