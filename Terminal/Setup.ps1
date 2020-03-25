@@ -5,7 +5,7 @@ $fileExists = Test-Path $linkPath
 $makeLink = -Not $fileExists
 if($fileExists){
 	$file = Get-Item $linkPath
-	if($file.Attributes -band [System.IO.FileAttributes]::ReparsePoint -eq 0){
+	if(-not $file.LinkType){
 		$makeLink = $true
 	}else{
 		echo "$linkPath already exists"
