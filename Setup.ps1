@@ -110,7 +110,6 @@ function InstallGit(){
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
 
 choco install googlechrome -y
-choco install microsoft-windows-terminal -y
 #choco install notepadplusplus -y
 choco install visualstudiocode -y
 choco install spotify -y
@@ -134,3 +133,8 @@ $password = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
 
 InstallAutoHotKey($password)
 InstallWinSplit($password)
+
+function InstallWindowsTerminal(){
+  choco install microsoft-windows-terminal -y
+  & Terminal\Setup.ps1
+}
