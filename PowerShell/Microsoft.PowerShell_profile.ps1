@@ -134,8 +134,13 @@ Import-Module DockerCompletion
 
 Import-Module z
 
-$locationChange = Get-History | Select-Object -Last 1 | Where-Object {$_.CommandLine.StartsWith("Set-Location")}
-$isDefaultLocation = -Not $locationChange
+#$locationChange = Get-History | Select-Object -Last 1 | Where-Object {$_.CommandLine.StartsWith("Set-Location")}
+#$isDefaultLocation = -Not $locationChange
+
+# Normalize with Join-Path so we get consistent slashes/casing
+$currentPath = Join-Path (Get-Location).Path ""
+$homePath = Join-Path (Resolve-Path "~") ""
+$isDefaultLocation = ($path -eq "C:\Windows\System32") -or ($currentPath -eq $homePath)
 $pathPriorities = @("C:\workspaces\ComputerVision\DontPanic.CV.Tracking", "D:\workspaces\ComputerVision\DontPanic.CV.Tracking", "C:\workspaces", "D:\workspaces")
 foreach($path in $pathPriorities)
 {
