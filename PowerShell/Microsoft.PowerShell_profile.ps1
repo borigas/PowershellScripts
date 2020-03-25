@@ -134,16 +134,20 @@ Import-Module DockerCompletion
 
 Import-Module z
 
-$isDefaultLocation = (Get-Location).Path -eq "C:\Windows\System32"
+$locationChange = Get-History | Select-Object -Last 1 | Where-Object {$_.CommandLine.StartsWith("Set-Location")}
+$isDefaultLocation = -Not $locationChange
 $pathPriorities = @("C:\workspaces\ComputerVision\DontPanic.CV.Tracking", "D:\workspaces\ComputerVision\DontPanic.CV.Tracking", "C:\workspaces", "D:\workspaces")
 foreach($path in $pathPriorities)
 {
 	if(Test-Path $path)
 	{
+		# Change directories only if we're in the default dir
 		if($isDefaultLocation)
 		{
 			cd $path
 		}
+
+		# Load Ocuvera modules when that dir is found
 		if($path.EndsWith("DontPanic.CV.Tracking")){
 			$moduleDir = $path + "\Scripts\OcuveraModules"
 			if(Test-Path $moduleDir){
