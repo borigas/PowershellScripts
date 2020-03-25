@@ -13,7 +13,7 @@
         {
             // Put settings here that you want to apply to all profiles
             "background": "#0c0c0c",
-            "acrylicOpacity": 0.75
+            "acrylicOpacity": 0.85
         },
         "list":
         [
