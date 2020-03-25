@@ -1,4 +1,4 @@
-#### Set execution policy ####
+Clear-Host
 
 #### Functions Used to Load VS Command Prompt #####
 
