@@ -67,11 +67,6 @@
         { "command": {"action":"splitPane", "split": "vertical"}, "keys": ["alt+n"] },
         { "command": {"action":"splitPane", "split": "horizontal"}, "keys": ["alt+shift+n"] },
 
-        { "command": "scrollUp", "keys": ["ctrl+j"] },
-        { "command": "scrollDown", "keys": ["ctrl+k"] },
-        { "command": "scrollUpPage", "keys": ["pageup"] },
-        { "command": "scrollDownPage", "keys": ["pagedown"] },
-
         // ctrl+alt+# instead
         { "command": {"action": "switchToTab", "index": 0}, "keys": ["ctrl+1"] },
         { "command": {"action": "switchToTab", "index": 1}, "keys": ["ctrl+2"] },
