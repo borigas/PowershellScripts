@@ -78,11 +78,5 @@
         { "command": {"action": "switchToTab", "index": 7}, "keys": ["ctrl+8"] },
         { "command": {"action": "switchToTab", "index": 8}, "keys": ["ctrl+9"] },
         { "command": {"action": "switchToTab", "index": 10}, "keys": ["ctrl+0"] }
-
-
-        // Split panes
-
-        // { "command": {"action":"moveFocus", "direction": "left"}, "keys": ["alt+left"] },
-        // { "command": "paste", "keys": ["ctrl+v"] }
     ]
 }
