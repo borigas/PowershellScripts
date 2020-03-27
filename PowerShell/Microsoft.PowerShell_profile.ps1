@@ -141,7 +141,7 @@ Import-Module z
 $currentPath = Join-Path (Get-Location).Path ""
 $homePath = Join-Path (Resolve-Path "~") ""
 $isDefaultLocation = ($path -eq "C:\Windows\System32") -or ($currentPath -eq $homePath)
-$pathPriorities = @("C:\workspaces\ComputerVision\DontPanic.CV.Tracking", "D:\workspaces\ComputerVision\DontPanic.CV.Tracking", "C:\workspaces", "D:\workspaces")
+$pathPriorities = @("C:\workspaces\ComputerVision\DontPanic.CV.Tracking", "D:\workspaces\ComputerVision\DontPanic.CV.Tracking", "C:\workspaces\OV1\DontPanic.CV.Tracking", "C:\workspaces", "D:\workspaces")
 foreach($path in $pathPriorities)
 {
 	if(Test-Path $path)
