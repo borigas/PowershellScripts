@@ -6,6 +6,26 @@ function InstallKeyboard {
     Write-Output "Installed Custom Keyboard"
 }
 
+function CreateRegistryKeyIfNotExists($registryPath)
+{
+    # From https://blogs.technet.microsoft.com/heyscriptingguy/2015/04/02/update-or-add-registry-key-value-with-powershell/
+    if(!(Test-Path $registryPath))
+    {
+        $lastSlashIndex = $registryPath.LastIndexOf("\")
+        $parentPath = $registryPath.Substring(0, $lastSlashIndex)
+        CreateRegistryKeyIfNotExists $parentPath
+        
+        Write-Output "Creating $registryPath"
+        New-Item -Path $registryPath
+    }
+}
+
+function CreateOrUpdateRegistryKey($registryPath, $name, $value, $propertyType)
+{
+    CreateRegistryKeyIfNotExists $registryPath
+    New-ItemProperty -Path $registryPath -Name $name -Value $value -PropertyType $propertyType -Force
+}
+
 function InstallAutoHotKey($password) {
 
     $ahkDir = "$(Get-Location)\AutoHotKey"
@@ -15,6 +35,15 @@ function InstallAutoHotKey($password) {
     $taskName = "AutoHotKey"
 
     CreateAutoStartAtLoginTask $password $ahkExePath $taskName
+
+    # MicMute References
+    # https://www.reddit.com/r/ErgoDoxEZ/comments/h0hn27
+    # https://www.reddit.com/r/Windows10/comments/97bzbn
+    # https://pastebin.com/raw/J15P9gVA
+    $micMuteLocation = "$($ahkDir)\Programs\MicMute.exe"
+    Write-Output "Setting up Mail key -> MicMute.exe override ($micMuteLocation)"
+    # This key (AppKey) doesn't originally exist. To undo, delete it
+    CreateOrUpdateRegistryKey "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\AppKey\15" "ShellExecute" "$micMuteLocation"
 
     Write-Output "Installed AutoHotKey"
 }
