@@ -102,6 +102,8 @@ function Get-ProfileDirectory {
 set-alias profileDir Get-ProfileDirectory
 
 set-alias g git
+
+set-alias k kubectl
 function gitstatus { git status }
 set-alias gsl gitstatus
 function gitstatusshort { git shorty }
