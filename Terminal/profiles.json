@@ -12,7 +12,7 @@
         "defaults":
         {
             // Put settings here that you want to apply to all profiles
-            "background": "#0c0c0c",
+            "background": "#000000",
             "acrylicOpacity": 0.85
         },
         "list":
@@ -22,8 +22,13 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "name": "Windows PowerShell",
                 "commandline": "powershell.exe -NoLogo",
+                "hidden": false
+            },
+            {
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
-                "useAcrylic": true
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
             },
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
