@@ -141,7 +141,7 @@ iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.p
 choco install googlechrome -y
 #choco install notepadplusplus -y
 choco install visualstudiocode -y
-choco install spotify -y
+#choco install spotify -y
 choco install authy-desktop -y
 
 InstallGit
@@ -167,3 +167,4 @@ function InstallWindowsTerminal(){
   choco install microsoft-windows-terminal -y
   & Terminal\Setup.ps1
 }
+InstallWindowsTerminal
