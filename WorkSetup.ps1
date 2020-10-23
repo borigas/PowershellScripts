@@ -10,3 +10,5 @@ choco install visualstudio2019enterprise -y --config ./work.vsconfig
 choco install microsoftazurestorageexplorer -y
 choco install servicebusexplorer -y
 choco install todobackup -y
+
+choco install MSMQ-Server --source WindowsFeatures
