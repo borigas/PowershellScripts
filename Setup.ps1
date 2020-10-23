@@ -143,6 +143,7 @@ choco install googlechrome -y
 choco install visualstudiocode -y
 #choco install spotify -y
 choco install authy-desktop -y
+choco install powertoys -y
 
 InstallGit
 
