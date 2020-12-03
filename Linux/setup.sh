@@ -18,12 +18,21 @@ else
 fi
 
 # Map path for Azure config sharing
-kubePath="$( wslpath $(wslvar USERPROFILE))/.azure/"
+azurePath="$( wslpath $(wslvar USERPROFILE))/.azure/"
 if [ ! -e ~/.azure ]; then
-    echo "Linking $kubePath to ~/.azure"
-    ln -s $kubePath ~/.azure
+    echo "Linking $azurePath to ~/.azure"
+    ln -s $azurePath ~/.azure
 else
     echo "~/.azure already exists"
+fi
+
+# Map path for Git config sharing
+gitPath="$( wslpath $(wslvar USERPROFILE))/.gitconfig"
+if [ ! -e ~/.gitconfig ]; then
+    echo "Linking $gitPath to ~/.gitconfig"
+    ln -s $gitPath ~/.gitconfig
+else
+    echo "~/.gitconfig already exists"
 fi
 
 

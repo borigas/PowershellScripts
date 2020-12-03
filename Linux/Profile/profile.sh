@@ -14,6 +14,8 @@
 alias k='kubectl'
 complete -F __start_kubectl k
 
+alias gs='git status'
+
 # Change to Windows style tab completion (https://superuser.com/questions/59175/is-there-a-way-to-make-bash-more-tab-friendly)
 bind '"\t":menu-complete'
 bind '"\e[Z":menu-complete-backward'
