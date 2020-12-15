@@ -30,7 +30,7 @@
     remoteclean = "!f() { git branch -r --merged ${1-master} | grep -v " ${1-master}$" | sed 's/origin\\///' | xargs git push --delete origin; }; f"
     unmerged = "!f() { git branch -r --no-merged ${1-master} | grep origin/release; }; f"
     bdone = "!f() { git checkout ${1-master} && git up && git branchclean ${1-master}; }; f"
-    bclean = clean -fXd */bin/ */Bin/ */obj/ */TestResults/* *.js *.js.map *.css
+    bclean = clean -fXd -e !.*
     fresh = clean -fXd
     rma = "!git rm $(git ls-files --deleted)"
     addnew = "!git add $(git ls-files -o --exclude-standard)"
