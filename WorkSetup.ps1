@@ -11,6 +11,7 @@ choco install microsoftazurestorageexplorer -y
 choco install servicebusexplorer -y
 choco install todobackup -y
 choco install robo3t -y
+choco install vlc -y
 
 if ($PSVersionTable.PSEdition -eq 'Desktop' -and (Get-Module -Name AzureRM -ListAvailable)) {
     Write-Warning -Message ('Az module not installed. Having both the AzureRM and Az modules installed at the same time is not supported.')
