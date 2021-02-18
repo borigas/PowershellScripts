@@ -17,18 +17,3 @@ if($fileExists){
 if($makeLink){
 	cmd /c mklink /h "$linkPath" "$targetPath"
 }
-
-$shellExtensionKey = "Registry::HKEY_CLASSES_ROOT\Directory\Background\shell\Terminal"
-if(-Not (Test-Path $shellExtensionKey))
-{
-	$iconPath = "$PSScriptRoot\terminal.ico"
-	$exePath = "$($env:LOCALAPPDATA)\Microsoft\WindowsApps\wt.exe"
-	$commandKey = "$shellExtensionKey\command"
-
-	New-Item $shellExtensionKey
-	Set-ItemProperty $shellExtensionKey -Name "(Default)" -Value "Windows Terminal Here"
-	Set-ItemProperty $shellExtensionKey -Name "Icon" -Value "$iconPath"
-	
-	New-Item $commandKey
-	Set-ItemProperty $commandKey -Name "(Default)" -Value ($exePath + ' -d "%V\."')
-}
