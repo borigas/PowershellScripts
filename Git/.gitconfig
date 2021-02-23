@@ -5,8 +5,6 @@
 [user]
 	name = Ben Origas
 	email = borigas@ocuvera.com
-[push]
-	default = simple
 [alias]
     incoming = !git fetch && git lg ..origin
     outgoing = !git lg origin..
@@ -82,9 +80,6 @@
 #     tool = vscode
 # [difftool "vscode"]
 #     cmd = code --wait --diff $LOCAL $REMOTE
-
-[push]
-	default = simple
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
