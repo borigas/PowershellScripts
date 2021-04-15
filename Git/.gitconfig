@@ -86,3 +86,9 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[maintenance]
+	repo = C:/workspaces/OV1
+	repo = C:/workspaces/OV2
+	repo = C:/workspaces/OV3
+	repo = C:/workspaces/OV4
+	repo = C:/workspaces/RoomClientImaging/RcImages
