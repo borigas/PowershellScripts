@@ -37,12 +37,16 @@ function VsVars32()
 	$vsWhere = 'C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe'
 	if(Test-Path $vsWhere){
 		$vsLocation = & $vsWhere -latest -property installationPath
-		$vsDevCmd = "$vsLocation\Common7\Tools\VsDevCmd.bat"
-		Invoke-Environment $vsDevCmd
+		# $vsDevCmd = "$vsLocation\Common7\Tools\VsDevCmd.bat"
+		# Invoke-Environment $vsDevCmd
 
 		$vsName = & $vsWhere -latest -property displayName
 		$vsVersion = & $vsWhere -latest -property catalog_productDisplayVersion
 		$version = "$vsName ($vsVersion)"
+
+		$devShellDll = "$vsLocation\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
+		Import-Module $devShellDll
+		Enter-VsDevShell -VsInstallPath $vsLocation | Out-Null
 	}
 	elseif(Test-Path env:VS140COMNTOOLS){
 		$vsComntools = (Get-ChildItem env:VS140COMNTOOLS).Value
