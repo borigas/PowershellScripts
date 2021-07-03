@@ -46,7 +46,7 @@ function VsVars32()
 
 		$devShellDll = "$vsLocation\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"
 		Import-Module $devShellDll
-		Enter-VsDevShell -VsInstallPath $vsLocation | Out-Null
+		Enter-VsDevShell -VsInstallPath $vsLocation -StartInPath (Join-Path (Resolve-Path "~") "") | Out-Null
 	}
 	elseif(Test-Path env:VS140COMNTOOLS){
 		$vsComntools = (Get-ChildItem env:VS140COMNTOOLS).Value
