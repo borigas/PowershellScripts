@@ -15,7 +15,7 @@
     <WebUpdate>
         <AutoCheck Value="True"/>
         <Frequency Value="3"/>
-        <LastCheck Value="1543870550"/>
+        <LastCheck Value="1625629596"/>
     </WebUpdate>
     <Drag_N_Go>
         <Enabled Value="True"/>
