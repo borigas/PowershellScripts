@@ -69,6 +69,17 @@ function VsVars32()
 	return $version
 }
 
+function AddAdbPathToPath(){
+	# https://rajapet.com/2020/05/15/add-a-posh-adb-to-your-windows-terminal/
+	if ($env:Path -NotMatch "Android\\android-sdk\\platform")
+	{
+		$adbPath = "${env:ProgramFiles(x86)}\Android\android-sdk\platform-tools"
+		if(Test-Path $adbPath){
+			$env:Path += ";$adbPath"
+		}
+	}
+}
+
 ###### Function Used to Set Background to Light Blue If not Admin ######
 
 function AmIAdmin()
@@ -82,6 +93,8 @@ function AmIAdmin()
 
 ###### Run Functions on Startup ######
 $vsVersion = VsVars32
+
+AddAdbPathToPath
 
 $isAdmin = AmIAdmin
 
