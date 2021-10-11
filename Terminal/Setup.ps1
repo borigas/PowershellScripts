@@ -1,5 +1,5 @@
 $targetPath = $PSScriptRoot + "\profiles.json"
-$linkPath = $env:USERPROFILE + "\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json"
+$linkPath = $env:USERPROFILE + "\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
 $fileExists = Test-Path $linkPath
 $makeLink = -Not $fileExists
