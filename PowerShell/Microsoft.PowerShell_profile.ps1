@@ -140,6 +140,26 @@ function publishBranch{
     git push --set-upstream origin $shortBranchName
 }
 set-alias gpub publishBranch
+function gitBdoneWithWorkTreeSupport{
+	$cleanBranchNames = git branch | 
+		ForEach-Object { $_ -replace '\**\+*\s*(.*)\s*','$1' }
+	$branch = $cleanBranchNames | 
+		Select-String /master | 
+		ForEach-Object { $_ -replace '(.*)/master','$1' } | 
+		Where-Object { (Get-Location).Path.ToLower().Contains($_.ToLower()) } | 
+		ForEach-Object { "$_/master" } |
+		Select-Object -First 1
+
+	if(-Not $branch){
+		if($cleanBranchNames -contains "master"){
+			$branch = "master"
+		}else{
+			$branch = "main"
+		}
+	}
+	git bdone $branch
+}
+set-alias bdone gitBdoneWithWorkTreeSupport
 
 function mongo {
     . "C:\MongoDb\bin\mongo.exe" --shell --host HV-Mongo01
