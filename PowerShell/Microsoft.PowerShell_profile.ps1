@@ -161,6 +161,8 @@ function gitBdoneWithWorkTreeSupport{
 }
 set-alias bdone gitBdoneWithWorkTreeSupport
 
+set-alias c clear
+
 function mongo {
     . "C:\MongoDb\bin\mongo.exe" --shell --host HV-Mongo01
 }
