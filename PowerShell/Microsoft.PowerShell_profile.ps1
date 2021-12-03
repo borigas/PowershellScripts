@@ -204,7 +204,7 @@ Set-PSReadLineKeyHandler -Key Alt+w `
 # Normalize with Join-Path so we get consistent slashes/casing
 $currentPath = Join-Path (Get-Location).Path ""
 $homePath = Join-Path (Resolve-Path "~") ""
-$isDefaultLocation = ($path -eq "C:\Windows\System32") -or ($currentPath -eq $homePath)
+$isDefaultLocation = ($currentPath -eq "C:\Windows\System32") -or ($currentPath -eq $homePath)
 $pathPriorities = @("C:\workspaces\ComputerVision\DontPanic.CV.Tracking", "D:\workspaces\ComputerVision\DontPanic.CV.Tracking", "C:\workspaces\OV1\DontPanic.CV.Tracking", "C:\workspaces", "D:\workspaces")
 foreach($path in $pathPriorities)
 {
