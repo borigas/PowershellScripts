@@ -12,7 +12,8 @@
     pub = !git rev-parse --abbrev-ref HEAD | xargs -r git push --set-upstream origin 
     co = checkout
     l1 = !git lg -1
-    d = !git diff && git submodule foreach --recursive git diff
+    d = diff
+    ds = !git diff && git submodule foreach --recursive git diff
     d0 = diff HEAD
     d1 = diff HEAD^
     dc = diff --cached
