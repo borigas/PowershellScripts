@@ -27,3 +27,5 @@ export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\
 
 # Add Krew to the path
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+alias c='clear'
