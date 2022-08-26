@@ -35,9 +35,10 @@
     addnew = "!git add $(git ls-files -o --exclude-standard)"
     saveup = "!f() { git fetch && git save && git rebase ${1-origin/master} && git reset HEAD^; }; f"
     
-    
     rm-deleted = "!git rm $(git ls-files --deleted)"
-    
+    rm-empty = "!find . -empty -type d -not -path './.' -delete -print"
+    ls-empty = "!find . -empty -type d -not -path './.'"
+
     # https://hackernoon.com/lesser-known-git-commands-151a1918a60#.eew71l3ps
     please = push --force-with-lease
     commend = commit --amend --no-edit
