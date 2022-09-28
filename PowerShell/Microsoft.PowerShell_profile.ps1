@@ -83,15 +83,19 @@ function AddAdbPathToPath(){
 function AddToolsToPath(){
 	$toolsPath = "C:\Tools\"
 	if(Test-Path $toolsPath){
-		$path = [Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
+		$machinePath = [Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
+		$psPath = $env:Path
 		$toolDirs = Get-ChildItem $toolsPath
 		foreach($tool in $toolDirs){
-			if(!$path.Contains($tool.FullName)){
-				$path += ";" + $tool.FullName
+			if(!$psPath.Contains($tool.FullName)){
+				$psPath += ";" + $tool.FullName
+			}
+			if(!$machinePath.Contains($tool.FullName)){
+				$machinePath += ";" + $tool.FullName
 			}
 		}
-		[Environment]::SetEnvironmentVariable("Path", $path, [System.EnvironmentVariableTarget]::Machine)
-		$env:Path = $path
+		[Environment]::SetEnvironmentVariable("Path", $machinePath, [System.EnvironmentVariableTarget]::Machine)
+		$env:Path = $psPath
 	}
 }
 
