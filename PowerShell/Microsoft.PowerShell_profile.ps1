@@ -80,6 +80,21 @@ function AddAdbPathToPath(){
 	}
 }
 
+function AddToolsToPath(){
+	$toolsPath = "C:\Tools\"
+	if(Test-Path $toolsPath){
+		$path = [Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
+		$toolDirs = Get-ChildItem $toolsPath
+		foreach($tool in $toolDirs){
+			if(!$path.Contains($tool.FullName)){
+				$path += ";" + $tool.FullName
+			}
+		}
+		[Environment]::SetEnvironmentVariable("Path", $path, [System.EnvironmentVariableTarget]::Machine)
+		$env:Path = $path
+	}
+}
+
 ###### Function Used to Set Background to Light Blue If not Admin ######
 
 function AmIAdmin()
@@ -95,6 +110,7 @@ function AmIAdmin()
 $vsVersion = VsVars32
 
 AddAdbPathToPath
+AddToolsToPath
 
 $isAdmin = AmIAdmin
 
