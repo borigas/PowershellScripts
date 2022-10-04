@@ -80,6 +80,15 @@ function AddAdbPathToPath(){
 	}
 }
 
+function CleanPath($path, $managedPath){
+	$pathsToRemove = $path.Split(";") | Where-Object {$_.StartsWith($managedPath) -and !(Test-Path $_)}
+	foreach($item in $pathsToRemove){
+		$path = $path.Replace(";$item;", ";")
+	}
+	$path = $path.Replace(";;", ";")
+	return $path
+}
+
 function AddToolsToPath(){
 	$toolsPath = "C:\Tools\"
 	if(Test-Path $toolsPath){
@@ -94,7 +103,9 @@ function AddToolsToPath(){
 				$machinePath += ";" + $tool.FullName
 			}
 		}
+		$machinePath = CleanPath $machinePath $toolsPath
 		[Environment]::SetEnvironmentVariable("Path", $machinePath, [System.EnvironmentVariableTarget]::Machine)
+		$psPath = CleanPath $psPath $toolsPath
 		$env:Path = $psPath
 	}
 }
