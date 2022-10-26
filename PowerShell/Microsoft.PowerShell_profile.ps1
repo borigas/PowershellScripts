@@ -85,7 +85,9 @@ function CleanPath($path, $managedPath){
 	foreach($item in $pathsToRemove){
 		$path = $path.Replace(";$item;", ";")
 	}
-	$path = $path.Replace(";;", ";")
+	$pathItems = $path.Split(";", [System.StringSplitOptions]::RemoveEmptyEntries)
+	$uniquePathItems = $pathItems | Select-Object -Unique
+	$path = [System.String]::Join(";", $uniquePathItems)
 	return $path
 }
 
