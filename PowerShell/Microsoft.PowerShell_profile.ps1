@@ -104,7 +104,9 @@ function AddToolsToPath(){
 			}
 		}
 		$machinePath = CleanPath $machinePath $toolsPath
-		[Environment]::SetEnvironmentVariable("Path", $machinePath, [System.EnvironmentVariableTarget]::Machine)
+		try{
+			[Environment]::SetEnvironmentVariable("Path", $machinePath, [System.EnvironmentVariableTarget]::Machine)
+		}catch{}
 		$psPath = CleanPath $psPath $toolsPath
 		$env:Path = $psPath
 	}
