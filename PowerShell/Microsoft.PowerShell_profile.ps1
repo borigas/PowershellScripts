@@ -94,8 +94,10 @@ function CleanPath($path, $managedPath){
 function AddToolsToPath(){
 	$toolsPath = "C:\Tools\"
 	if(Test-Path $toolsPath){
-		$machinePath = [Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
-		$psPath = $env:Path
+		$originalMachinePath = [Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
+		$machinePath = $originalMachinePath
+		$originalPsPath = $env:Path
+		$psPath = $originalPsPath
 		$toolDirs = Get-ChildItem $toolsPath
 		foreach($tool in $toolDirs){
 			if(!$psPath.Contains($tool.FullName)){
@@ -107,10 +109,16 @@ function AddToolsToPath(){
 		}
 		$machinePath = CleanPath $machinePath $toolsPath
 		try{
-			[Environment]::SetEnvironmentVariable("Path", $machinePath, [System.EnvironmentVariableTarget]::Machine)
+			if($originalMachinePath -ne $machinePath){
+				Write-Host "Modifying Machine Path Environment Variable"
+				[Environment]::SetEnvironmentVariable("Path", $machinePath, [System.EnvironmentVariableTarget]::Machine)
+				Write-Host "Modified Machine Path Environment Variable"
+			}
 		}catch{}
 		$psPath = CleanPath $psPath $toolsPath
-		$env:Path = $psPath
+		if($originalPsPath -ne $psPath){
+			$env:Path = $psPath
+		}
 	}
 }
 
