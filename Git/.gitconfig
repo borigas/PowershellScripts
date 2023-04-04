@@ -27,7 +27,7 @@
     wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
     branchclean = "!f() { git branch --merged ${1-master} --format='%(refname:short)' | grep -v master | grep -v main | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
     remoteclean = "!f() { git branch -r --merged ${1-master} | grep -v " ${1-master}$" | sed 's/origin\\///' | xargs git push --delete origin; }; f"
-    remotedelete = "!f() { git push --delete origin ${1} && git branch -d ${1}; }; f"
+    remotedelete = "!f() { git push --delete origin ${1} && git branch -D ${1}; }; f"
     unmerged = "!f() { git branch -r --no-merged ${1-master} | grep origin/release; }; f"
     bdone = "!f() { git checkout ${1-master} && git up && git branchclean ${1-master} && git rm-empty; }; f"
     bclean = clean -fXd -e !.*
