@@ -46,7 +46,7 @@
     shorty = !git status --short --branch && git submodule foreach --recursive git status --short --branch
     
     # http://stackoverflow.com/a/9074343/1130636
-    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+    lg = log --graph --abbrev-commit --decorate --date=format-local:'%Y-%m-%d %H:%M:%S' --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
     
     # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
     # Search for files in repo
