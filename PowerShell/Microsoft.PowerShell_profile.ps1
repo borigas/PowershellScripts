@@ -1,5 +1,3 @@
-Clear-Host
-
 #### Functions Used to Load VS Command Prompt #####
 
 # Change home to end with a "\". Allows cd ~ when ~ was D:. Otherwise, it acts as a drive change, not a dir change
@@ -151,8 +149,8 @@ foreach ($possibleEditorPath in $editorPathOptions){
 }
 
 $hosts = $env:SystemRoot + "\system32\drivers\etc\hosts"
-function edit-hostfile { 
-	notepad $hosts 
+function edit-hostfile {
+	notepad $hosts
 }
 set-alias hosts edit-hostfile
 function Get-ProfileDirectory {
@@ -184,12 +182,12 @@ function publishBranch{
 }
 set-alias gpub publishBranch
 function gitBdoneWithWorkTreeSupport{
-	$cleanBranchNames = git branch | 
+	$cleanBranchNames = git branch |
 		ForEach-Object { $_ -replace '\**\+*\s*(.*)\s*','$1' }
-	$branch = $cleanBranchNames | 
-		Select-String /master | 
-		ForEach-Object { $_ -replace '(.*)/master','$1' } | 
-		Where-Object { (Get-Location).Path.ToLower().Contains($_.ToLower()) } | 
+	$branch = $cleanBranchNames |
+		Select-String /master |
+		ForEach-Object { $_ -replace '(.*)/master','$1' } |
+		Where-Object { (Get-Location).Path.ToLower().Contains($_.ToLower()) } |
 		ForEach-Object { "$_/master" } |
 		Select-Object -First 1
 
